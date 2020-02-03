@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f51327f87bdb40448b433a13a710f00, type: 3}
+  m_Name: DefaultProjectConfig
+  m_EditorClassIdentifier: 
+  m_AppConfigPath: Resources/Config/AppConfig
+  m_UIRootPath: Resources/UI/UIRoot
+  m_ABRelativePath: abc/asd/putao/
+  m_ExportABConfigFile: asset_bindle_config.bin
+  m_TableFolder: config/
+  m_BuildCSharpWinShell: table/output_code_csharp.bat
+  m_BuildTxtDataWinShell: table/output_txt.bat
+  m_BuildLrgDataWinShell: table/output_xc.bat
+  m_BuildCSharpLinuxShell: table/output_code_csharp.sh
+  m_BuildTxtDataLinuxShell: table/output_txt.sh
+  m_BuildLrgDataLinuxShell: table/output_xc.sh
+  m_ProjectToolsFolder: /../../../Tools/
