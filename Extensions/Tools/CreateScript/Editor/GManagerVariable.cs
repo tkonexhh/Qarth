@@ -27,14 +27,6 @@ namespace Qarth
             }
         }
 
-        StringBuilder variable = new StringBuilder();
-        StringBuilder controllerEvent = new StringBuilder();
-        StringBuilder attributeVariable = new StringBuilder();
-        StringBuilder attribute = new StringBuilder();
-        StringBuilder find = new StringBuilder();
-        StringBuilder newAttribute = new StringBuilder();
-        StringBuilder register = new StringBuilder();
-        StringBuilder function = new StringBuilder();
 
         public void Init()
         {
@@ -59,6 +51,15 @@ namespace Qarth
 
         public string GetBuildUICode()
         {
+            StringBuilder variable = new StringBuilder();
+            StringBuilder controllerEvent = new StringBuilder();
+            StringBuilder attributeVariable = new StringBuilder();
+            StringBuilder attribute = new StringBuilder();
+            StringBuilder find = new StringBuilder();
+            StringBuilder newAttribute = new StringBuilder();
+            StringBuilder register = new StringBuilder();
+            StringBuilder function = new StringBuilder();
+
             newAttribute.Length =
             attributeVariable.Length =
             function.Length =
@@ -101,75 +102,71 @@ namespace Qarth
 
             var tmp = string.Format(GConfigure.uiClassCode,
                 variable, attributeVariable, controllerEvent, attribute, find, newAttribute, register, function);
-            return string.Format(GConfigure.uiCode_BindUI, QGlobalFun.GetString(GConfigure.selectTransform.name), tmp);
+            return string.Format(GConfigure.uiCode_BindUI, GGlobalFun.GetString(GConfigure.selectTransform.name), tmp);
         }
 
-        StringBuilder assignment = new StringBuilder();
-        StringBuilder declare = new StringBuilder();
-        StringBuilder fun = new StringBuilder();
-        public string GetControllerBuildCode()
-        {
-            assignment.Length =
-            declare.Length =
-            fun.Length = 0;
-            string type = string.Empty;
-            foreach (var value in dic.Values)
-            {
-                if (value.variableEvent != string.Empty && value.state.isEvent)
-                {
-                    type = value.IsButton() ? string.Empty : string.Format("{0} value", value.eventType);
-                    //assignment.AppendFormat("\t\tui.{0,-50} = {1};\n", value.attributeName, value.eventName);
-                    assignment.AppendFormat(GConfigure.assignmentFormat, value.attributeName, value.eventName);
-                    //declare.AppendFormat("\tpartial void {0}({1});\n", value.attributeName, type);
-                    declare.AppendFormat(GConfigure.declareFormat, value.attributeName, type);
-                    /*fun.AppendFormat("\tprivate void {0}({1})\n\t{{\n\t\t{2}({3});\n\t}}\n",
-                        value.eventName, type, value.attributeName, value.type == "Button" ? string.Empty : "value");*/
-                    fun.AppendFormat(GConfigure.funFormat, value.eventName, type,
-                        value.attributeName, value.IsButton() ? string.Empty : "value");
-                }
-            }
+        // StringBuilder assignment = new StringBuilder();
+        // StringBuilder declare = new StringBuilder();
+        // StringBuilder fun = new StringBuilder();
+        // public string GetControllerBuildCode()
+        // {
+        //     assignment.Length =
+        //     declare.Length =
+        //     fun.Length = 0;
+        //     string type = string.Empty;
+        //     foreach (var value in dic.Values)
+        //     {
+        //         if (value.variableEvent != string.Empty && value.state.isEvent)
+        //         {
+        //             type = value.IsButton() ? string.Empty : string.Format("{0} value", value.eventType);
+        //             assignment.AppendFormat(GConfigure.assignmentFormat, value.attributeName, value.eventName);
+        //             declare.AppendFormat(GConfigure.declareFormat, value.attributeName, type);
+        //             fun.AppendFormat(GConfigure.funFormat, value.eventName, type,
+        //                  value.attributeName, value.IsButton() ? string.Empty : "value");
+        //         }
+        //     }
 
-            string code = string.Empty;
-            if (GConfigure.isCreateModel)
-            {
-                code = GConfigure.controllerBuildCode;
-            }
-            else
-            {
-                code = GConfigure.controllerBuildCode2;
-            }
-            return string.Format(
-                code,
-                QGlobalFun.GetString(GConfigure.selectTransform.name),
-                assignment,
-                declare,
-                fun);
-        }
+        //     string code = string.Empty;
+        //     if (GConfigure.isCreateModel)
+        //     {
+        //         code = GConfigure.controllerBuildCode;
+        //     }
+        //     else
+        //     {
+        //         code = GConfigure.controllerBuildCode2;
+        //     }
+        //     return string.Format(
+        //         code,
+        //         GGlobalFun.GetString(GConfigure.selectTransform.name),
+        //         assignment,
+        //         declare,
+        //         fun);
+        // }
 
         public string GetMainCode()
         {
             switch (GConfigure.Version)
             {
                 case ScriptVersion.Mono:
-                    return string.Format(GConfigure.uiCode_Mono, QGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeOnAwake);
+                    return string.Format(GConfigure.uiCode_Mono, GGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeOnAwake);
                 case ScriptVersion.Panel:
-                    return string.Format(GConfigure.uiCode_Panel, QGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeQarthPanel);
+                    return string.Format(GConfigure.uiCode_Panel, GGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeQarthPanel);
                 case ScriptVersion.AnimPanel:
-                    return string.Format(GConfigure.uiCode_Panel, QGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeQarthAnimPanel);
+                    return string.Format(GConfigure.uiCode_Panel, GGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeQarthAnimPanel);
                 default:
-                    return string.Format(GConfigure.uiCode_AnimPanel, QGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeOnAwake);
+                    return string.Format(GConfigure.uiCode_AnimPanel, GGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeOnAwake);
             }
         }
 
-        public string GetModelCode()
-        {
-            return string.Format(GConfigure.modelCode, QGlobalFun.GetString(GConfigure.selectTransform.name));
-        }
+        // public string GetModelCode()
+        // {
+        //     return string.Format(GConfigure.modelCode, GGlobalFun.GetString(GConfigure.selectTransform.name));
+        // }
 
-        public string GetControllerCode()
-        {
-            return string.Format(GConfigure.controllerCode, QGlobalFun.GetString(GConfigure.selectTransform.name));
-        }
+        // public string GetControllerCode()
+        // {
+        //     return string.Format(GConfigure.controllerCode, GGlobalFun.GetString(GConfigure.selectTransform.name));
+        // }
 
         public override string ToString()
         {
@@ -358,7 +355,7 @@ namespace Qarth
 
             var name = GConfigure.MainFileName;
             //一定要添加命名空间
-            var scriptType = QGlobalFun.GetAssembly().GetType(GConfigureDefine.namespaceStr + "." + name);
+            var scriptType = GGlobalFun.GetAssembly().GetType(GConfigureDefine.namespaceStr + "." + name);
 
             if (scriptType == null)
             {
@@ -391,7 +388,7 @@ namespace Qarth
                 return;
             }
 
-            var assembly = QGlobalFun.GetAssembly();
+            var assembly = GGlobalFun.GetAssembly();
             var type = assembly.GetType(GConfigureDefine.namespaceStr + "." + GConfigure.MainFileName);
 
             if (type == null)
@@ -477,7 +474,7 @@ namespace Qarth
         //         vj.index = state.index;
         //         vj.name = item.Value.name;
         //         vj.type = item.Value.type;
-        //         vj.findPath = QGlobalFun.GetGameObjectPath(item.Key, GConfigure.selectTransform);
+        //         vj.findPath = GGlobalFun.GetGameObjectPath(item.Key, GConfigure.selectTransform);
         //         jd.Add(JsonMapper.ToObject(JsonMapper.ToJson(vj)));
         //     }
         //     GFileOperation.WriteText(GConfigure.GetInfoPath(), jd.ToJson());
@@ -513,7 +510,7 @@ namespace Qarth
                     string name = string.Format("m_{0}", target.name);
                     k.Add(name);
                     t.Add(target.type.ToString());
-                    p.Add(QGlobalFun.GetGameObjectPath(key, GConfigure.selectTransform));
+                    p.Add(GGlobalFun.GetGameObjectPath(key, GConfigure.selectTransform));
                     lstEvent.Add(target.state.isEvent);
                     lstAttr.Add(target.state.isAttribute);
                 }

@@ -28,8 +28,8 @@ namespace Qarth
         public static Transform selectTransform;
         public static string referencePath;
         public static string prefabSavePath;
-        public static bool isCreateModel = false;
-        public static bool isCreateController = true;
+        // public static bool isCreateModel = false;
+        // public static bool isCreateController = true;
 
         public static string InfoPath
         {
@@ -80,17 +80,17 @@ namespace Qarth
                                                     "\t\tprotected override void OnClose()\n\t\t{\n\t\t}\n\n";
 
         public static string MainFileName { get { return GetMainFileName(); } }
-        public static string UIFileName { get { return GetFileName("UI"); } }
+        // /public static string UIFileName { get { return GetFileName("UI"); } }
         public static string UIBuildFileName { get { return GetFileName("BuildUI"); } }
-        public static string ModelFileName { get { return GetFileName("Model"); } }
-        public static string ControllerFileName { get { return GetFileName("Controller"); } }
-        public static string ControllerBuildFileName { get { return GetFileName("BuildController"); } }
+        // public static string ModelFileName { get { return GetFileName("Model"); } }
+        // public static string ControllerFileName { get { return GetFileName("Controller"); } }
+        // public static string ControllerBuildFileName { get { return GetFileName("BuildController"); } }
 
-        public static string UIName { get { return GetClassName("UI"); } }
-        public static string UIBuildName { get { return GetClassName("BuildUI"); } }
-        public static string ModelName { get { return GetClassName("Model"); } }
-        public static string ControllerName { get { return GetClassName("Controller"); } }
-        public static string ControllerBuildName { get { return GetClassName("BuildController"); } }
+        // public static string UIName { get { return GetClassName("UI"); } }
+        // public static string UIBuildName { get { return GetClassName("BuildUI"); } }
+        // public static string ModelName { get { return GetClassName("Model"); } }
+        // public static string ControllerName { get { return GetClassName("Controller"); } }
+        // public static string ControllerBuildName { get { return GetClassName("BuildController"); } }
 
         public static readonly string uiCode_Mono =
             "using UnityEngine;\n" +
@@ -140,42 +140,42 @@ namespace Qarth
             "\t\t}}\n" +
             "{7}";
 
-        public static readonly string modelCode =
-            "\n\npublic class {0}_Model\n{{\n\tpublic {0}_Model()\n\t{{\n\n\t}}\n}}";
+        //     public static readonly string modelCode =
+        //         "\n\npublic class {0}_Model\n{{\n\tpublic {0}_Model()\n\t{{\n\n\t}}\n}}";
 
-        public static readonly string controllerCode =
-            "using UnityEngine;\n" +
-            "using UnityEngine.EventSystems;\n\n" +
-            "\n\npublic partial class {0}_Controller\n{{\n" +
-            "\tpartial void OnAwake()\n\t{{\n\n\t}}\n}}";
+        //     public static readonly string controllerCode =
+        //         "using UnityEngine;\n" +
+        //         "using UnityEngine.EventSystems;\n\n" +
+        //         "\n\npublic partial class {0}_Controller\n{{\n" +
+        //         "\tpartial void OnAwake()\n\t{{\n\n\t}}\n}}";
 
-        public static readonly string controllerBuildCode =
-            "using UnityEngine;\n\n" +
-            "\n\npublic partial class {0}_Controller:IController\n{{\n" +
-            "\tprivate {0}_UI ui;\n" +
-            "\tprivate {0}_Model model = new {0}_Model();\n\n" +
-            "\tpublic {0}_Controller({0}_UI ui)\n\t{{\n" +
-            "\t\tthis.ui = ui;\n" +
-            "\t\tOnAwake();\n" +
-            "{1}" +
-            "\t}}\n" +
-            "\tpartial void OnAwake();\n" +
-            "{2}\n{3}\n" +
-            "}}";
+        //     public static readonly string controllerBuildCode =
+        //         "using UnityEngine;\n\n" +
+        //         "\n\npublic partial class {0}_Controller:IController\n{{\n" +
+        //         "\tprivate {0}_UI ui;\n" +
+        //         "\tprivate {0}_Model model = new {0}_Model();\n\n" +
+        //         "\tpublic {0}_Controller({0}_UI ui)\n\t{{\n" +
+        //         "\t\tthis.ui = ui;\n" +
+        //         "\t\tOnAwake();\n" +
+        //         "{1}" +
+        //         "\t}}\n" +
+        //         "\tpartial void OnAwake();\n" +
+        //         "{2}\n{3}\n" +
+        //         "}}";
 
-        public static readonly string controllerBuildCode2 =
-    "using UnityEngine;\n\n" +
-    "\n\npublic partial class {0}_Controller:IController\n{{\n" +
-    "\tprivate {0}_UI ui;\n" +
-    //"\tprivate {0}_Model model = new {0}_Model();\n\n" +
-    "\tpublic {0}_Controller({0}_UI ui)\n\t{{\n" +
-    "\t\tthis.ui = ui;\n" +
-    "\t\tOnAwake();\n" +
-    "{1}" +
-    "\t}}\n" +
-    "\tpartial void OnAwake();\n" +
-    "{2}\n{3}\n" +
-    "}}";
+        //     public static readonly string controllerBuildCode2 =
+        // "using UnityEngine;\n\n" +
+        // "\n\npublic partial class {0}_Controller:IController\n{{\n" +
+        // "\tprivate {0}_UI ui;\n" +
+        // //"\tprivate {0}_Model model = new {0}_Model();\n\n" +
+        // "\tpublic {0}_Controller({0}_UI ui)\n\t{{\n" +
+        // "\t\tthis.ui = ui;\n" +
+        // "\t\tOnAwake();\n" +
+        // "{1}" +
+        // "\t}}\n" +
+        // "\tpartial void OnAwake();\n" +
+        // "{2}\n{3}\n" +
+        // "}}";
 
         public static ScriptVersion Version
         {
@@ -188,7 +188,7 @@ namespace Qarth
 
         public static string FilePath(string name)
         {
-            var filePath = string.Format("{0}/{1}/{2}/{3}.cs", Application.dataPath, referencePath, QGlobalFun.GetString(Selection.activeTransform.name), name);
+            var filePath = string.Format("{0}/{1}/{2}/{3}.cs", Application.dataPath, referencePath, GGlobalFun.GetString(Selection.activeTransform.name), name);
             if (!GFileOperation.IsDirctoryName(filePath, true))
             {
                 EditorUtility.DisplayDialog(msgTitle, "文件夹无法创建", "OK");
@@ -199,14 +199,14 @@ namespace Qarth
 
         public static string GetSelectObjectRootPath()
         {
-            var path = string.Format("{0}/{1}/{2}/", Application.dataPath, referencePath, QGlobalFun.GetString(Selection.activeTransform.name));
+            var path = string.Format("{0}/{1}/{2}/", Application.dataPath, referencePath, GGlobalFun.GetString(Selection.activeTransform.name));
             return path;
         }
 
-        public static string GetClassName(string suffix)
-        {
-            return string.Format("{1}_{0}", suffix, QGlobalFun.GetString(Selection.activeTransform.name));
-        }
+        // public static string GetClassName(string suffix)
+        // {
+        //     return string.Format("{1}_{0}", suffix, GGlobalFun.GetString(Selection.activeTransform.name));
+        // }
 
         // public static string GetInfoPath()
         // {
@@ -238,12 +238,12 @@ namespace Qarth
 
         private static string GetFileName(string suffix)
         {
-            return string.Format("{0}/{1}_{0}", suffix, QGlobalFun.GetString(Selection.activeTransform.name));
+            return string.Format("{0}/{1}_{0}", suffix, GGlobalFun.GetString(Selection.activeTransform.name));
         }
 
         private static string GetMainFileName()
         {
-            return string.Format("{0}", QGlobalFun.GetString(Selection.activeTransform.name));
+            return string.Format("{0}", GGlobalFun.GetString(Selection.activeTransform.name));
         }
 
 

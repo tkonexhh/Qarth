@@ -40,7 +40,7 @@ namespace Qarth
         public Action<string> onTypeChanged;
         public void SetIndex(string name, Transform t)
         {
-            comNames = QGlobalFun.GetComponentsName(t);
+            comNames = GGlobalFun.GetComponentsName(t);
             //asd = new List<bool>();
             int count = comNames.Length;
             for (int i = 0; i < count; i++)
@@ -85,7 +85,7 @@ namespace Qarth
                 }
 
                 oldIndex = index;
-                comNames = QGlobalFun.GetComponentsName(t);
+                comNames = GGlobalFun.GetComponentsName(t);
 
                 index = EditorGUILayout.Popup(index, comNames, popupMaxWidth);
                 //flagEnum = (FlagEnum)EditorGUILayout.EnumFlagsField("", flagEnum, popupMaxWidth);

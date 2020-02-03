@@ -34,7 +34,7 @@ namespace Qarth
         public GVariableModel(Transform t)
         {
             target = t;
-            path = QGlobalFun.GetGameObjectPath(t, Selection.activeTransform);
+            path = GGlobalFun.GetGameObjectPath(t, Selection.activeTransform);
             type = GetUIType();
             name = GetName(string.Format("{0}_{1}", type, t.name), t);
             state.SetIndex(type, t);
@@ -93,13 +93,13 @@ namespace Qarth
                 state.isSelectEvent = true;
                 eventType = parameters[(int)uiType];
                 attributeName = variableEvent.Insert(variableEvent.Length, name);
-                eventName = QGlobalFun.GetFirstUpper(attributeName);
+                eventName = GGlobalFun.GetFirstUpper(attributeName);
             }
         }
 
         private string GetName(string value, Transform tr)
         {
-            var str = QGlobalFun.GetString(value);
+            var str = GGlobalFun.GetString(value);
             string name = str;
             int i = 1;
             while (true)

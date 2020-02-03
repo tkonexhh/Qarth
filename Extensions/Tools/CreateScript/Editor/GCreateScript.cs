@@ -157,7 +157,7 @@ namespace Qarth
                         if (GConfigure.selectTransform != null)
                         {
                             var str = m_Manager.ToString();
-                            var array = QGlobalFun.GetStringList(str);
+                            var array = GGlobalFun.GetStringList(str);
                             EditorGUILayout.BeginVertical();
                             {
                                 foreach (var item in array)
