@@ -50,7 +50,7 @@ namespace Qarth
                     return Application.dataPath.ToString().Replace("/Assets", "") + "/Data/";
                 case RuntimePlatform.WindowsPlayer:
                     var path = Application.dataPath.ToString().Replace("/Assets", "") + "/Data/";
-                    QFileOperation.CreateDirctory(path);
+                    GFileOperation.CreateDirctory(path);
                     return path;
                 case RuntimePlatform.Android:
                     return Application.persistentDataPath + "/";
@@ -217,13 +217,7 @@ namespace Qarth
             return GameObject.Find(value.Remove(index, value.Length - index)).transform;
         }
 
-        public static void AddVector3(this JsonData target, string name, Vector3Double value)
-        {
-            target[name] = new JsonData();
-            target[name]["x"] = value.x;
-            target[name]["y"] = value.y;
-            target[name]["z"] = value.z;
-        }
+
 
         private static string GetFindPath(Transform target, Transform parent)
         {
