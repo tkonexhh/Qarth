@@ -16,7 +16,7 @@ namespace Qarth
     public class GConfigureDefine
     {
         public const string referencedefaultPath = "Scripts/Game/UIScripts/";
-        public const string prefabdefaultPath = "Resources/Panel/";
+        public const string prefabdefaultPath = "Resources/UI/Panels/";
         public const string namespaceStr = "GameWish.Game";
     }
 
@@ -54,7 +54,7 @@ namespace Qarth
 
 
         public static string variableFormat = "\t\t[SerializeField] private {0} m_{1};\n";
-        public static string findFormat = "\t\t{0,-50} = transform.Find(\"{1}\").GetComponent<{2}>();\n";
+        public static string findFormat = "\t\t\tm_{0} = transform.Find(\"{1}\").GetComponent<{2}>();\n";
         public static string attributeVariableFormat = "\t\tprivate {0,-45} m_{1};\n";
         public static string attributeFormat = "\t\tpublic {0} {1} {{ get {{ return m_{1}; }} }}\n";
         public static string newAttributeFormat = "\t\tq{0,-49} = new Q{1}({0});\n";
@@ -76,6 +76,7 @@ namespace Qarth
         public static string uicodeQarthAnimPanel = "\t\tprotected override void OnUIInit()\n\t\t{\n\t\t}\n\n" +
                                                     "\t\tprotected override void OnPanelOpen(params object[] args)\n\t\t{\n\t\t}\n\n" +
                                                     "\t\tprotected override void OnOpen()\n\t\t{\n\t\t}\n\n" +
+                                                    "\t\tprotected override void OnPanelHideComplete()\n\t\t{\n\t\t}\n\n" +
                                                     "\t\tprotected override void OnClose()\n\t\t{\n\t\t}\n\n";
 
         public static string MainFileName { get { return GetMainFileName(); } }
@@ -265,6 +266,27 @@ namespace Qarth
                 default:
                     return type;
             }
+        }
+
+        private static string[] s_FrontStr = new string[] { "Btn", "Button", "Image", "Img", "Transform", "Trans", "GameObject", "Obj", "Text", "Txt" };
+        public static string RemoveFrontTypeName(string name)
+        {
+            for (int i = 0; i < s_FrontStr.Length; i++)
+            {
+                if (name.StartsWith(s_FrontStr[i]))
+                {
+                    name = name.Remove(0, s_FrontStr[i].Length);
+                    return name;
+                }
+                else if (name.EndsWith(s_FrontStr[i]))
+                {
+                    name = name.Remove(name.Length - s_FrontStr[i].Length, s_FrontStr[i].Length);
+                    return name;
+                }
+            }
+
+
+            return name;
         }
     }
 }

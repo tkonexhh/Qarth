@@ -125,7 +125,7 @@ namespace Qarth
                 {
                     if (GUILayout.Button("复制代码")) m_Manager.Copy();
                     if (GUILayout.Button("挂载脚本")) m_Manager.MountScript();
-                    if (GUILayout.Button("绑定UI")) m_Manager.BindingUI();
+                    if (GUILayout.Button("绑定变量")) m_Manager.BindingUI();
                 }
                 EditorGUILayout.EndHorizontal();
 

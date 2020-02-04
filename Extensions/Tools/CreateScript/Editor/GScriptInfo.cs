@@ -10,7 +10,7 @@ namespace Qarth
         [SerializeField]
         private List<ClassInfo> list = new List<ClassInfo>();
 
-        public void SetClassInfo(string className, FieldInfo[] infos)
+        public void SetClassInfo(string className, ScriptVersion version, FieldInfo[] infos)
         {
             list.Clear();
             foreach (var key in list)
@@ -22,7 +22,7 @@ namespace Qarth
                     return;
                 }
             }
-            list.Add(new ClassInfo { className = className, fieldInfos = infos });
+            list.Add(new ClassInfo { className = className, version = version, fieldInfos = infos });
         }
 
         public FieldInfo[] GetFieldInfos(string className)
@@ -37,9 +37,22 @@ namespace Qarth
             return null;
         }
 
+        public ScriptVersion GetVersion(string className)
+        {
+            foreach (var key in list)
+            {
+                if (key.className == className)
+                {
+                    return key.version;
+                }
+            }
+            return ScriptVersion.Mono;
+        }
+
         [Serializable]
         private class ClassInfo
         {
+            public ScriptVersion version;
             public string className;
             public FieldInfo[] fieldInfos;
         }

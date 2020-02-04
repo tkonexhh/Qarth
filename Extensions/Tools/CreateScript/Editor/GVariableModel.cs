@@ -57,8 +57,8 @@ namespace Qarth
         private void OnTypeChanged(string value)
         {
             type = value;
-            name = GetName(string.Format("{0}{1}", GConfigure.GetShortTypeName(type), target.name), target);
-            // name = GetName(string.Format("{0}{1}", type, target.name), target);
+            name = GetName(string.Format("{0}{1}", GConfigure.GetShortTypeName(type), GConfigure.RemoveFrontTypeName(target.name)), target);
+
             isUI = false;
             state.isSelectEvent = false;
             if (!IsUIType(type))

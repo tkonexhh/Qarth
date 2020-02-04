@@ -47,19 +47,21 @@ namespace Qarth
                 v.state.isAttribute = fields[i].isAttr;
                 v.state.isEvent = fields[i].isEvent;
             }
+
+            GConfigure.Version = so.GetVersion(GConfigure.selectTransform.name);
         }
+
+        StringBuilder variable = new StringBuilder();
+        StringBuilder controllerEvent = new StringBuilder();
+        StringBuilder attributeVariable = new StringBuilder();
+        StringBuilder attribute = new StringBuilder();
+        StringBuilder find = new StringBuilder();
+        StringBuilder newAttribute = new StringBuilder();
+        StringBuilder register = new StringBuilder();
+        StringBuilder function = new StringBuilder();
 
         public string GetBuildUICode()
         {
-            StringBuilder variable = new StringBuilder();
-            StringBuilder controllerEvent = new StringBuilder();
-            StringBuilder attributeVariable = new StringBuilder();
-            StringBuilder attribute = new StringBuilder();
-            StringBuilder find = new StringBuilder();
-            StringBuilder newAttribute = new StringBuilder();
-            StringBuilder register = new StringBuilder();
-            StringBuilder function = new StringBuilder();
-
             newAttribute.Length =
             attributeVariable.Length =
             function.Length =
@@ -79,14 +81,15 @@ namespace Qarth
 
                 if (value.state.isAttribute)
                 {
-                    if (value.isUI)
-                    {
-                        attribute.AppendFormat(GConfigure.attributeFormat, value.type, value.name);
-                    }
-                    else
-                    {
-                        attribute.AppendFormat(GConfigure.attribute2Format, value.type, value.name);
-                    }
+                    // if (value.isUI)
+                    // {
+                    //     attribute.AppendFormat(GConfigure.attributeFormat, value.type, value.name);
+                    // }
+                    // else
+                    // {
+                    //     attribute.AppendFormat(GConfigure.attribute2Format, value.type, value.name);
+                    // }
+                    attribute.AppendFormat(GConfigure.attribute2Format, value.type, value.name);
                 }
 
                 if (value.variableEvent != string.Empty && value.state.isEvent)
@@ -105,43 +108,6 @@ namespace Qarth
             return string.Format(GConfigure.uiCode_BindUI, GGlobalFun.GetString(GConfigure.selectTransform.name), tmp);
         }
 
-        // StringBuilder assignment = new StringBuilder();
-        // StringBuilder declare = new StringBuilder();
-        // StringBuilder fun = new StringBuilder();
-        // public string GetControllerBuildCode()
-        // {
-        //     assignment.Length =
-        //     declare.Length =
-        //     fun.Length = 0;
-        //     string type = string.Empty;
-        //     foreach (var value in dic.Values)
-        //     {
-        //         if (value.variableEvent != string.Empty && value.state.isEvent)
-        //         {
-        //             type = value.IsButton() ? string.Empty : string.Format("{0} value", value.eventType);
-        //             assignment.AppendFormat(GConfigure.assignmentFormat, value.attributeName, value.eventName);
-        //             declare.AppendFormat(GConfigure.declareFormat, value.attributeName, type);
-        //             fun.AppendFormat(GConfigure.funFormat, value.eventName, type,
-        //                  value.attributeName, value.IsButton() ? string.Empty : "value");
-        //         }
-        //     }
-
-        //     string code = string.Empty;
-        //     if (GConfigure.isCreateModel)
-        //     {
-        //         code = GConfigure.controllerBuildCode;
-        //     }
-        //     else
-        //     {
-        //         code = GConfigure.controllerBuildCode2;
-        //     }
-        //     return string.Format(
-        //         code,
-        //         GGlobalFun.GetString(GConfigure.selectTransform.name),
-        //         assignment,
-        //         declare,
-        //         fun);
-        // }
 
         public string GetMainCode()
         {
@@ -152,21 +118,11 @@ namespace Qarth
                 case ScriptVersion.Panel:
                     return string.Format(GConfigure.uiCode_Panel, GGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeQarthPanel);
                 case ScriptVersion.AnimPanel:
-                    return string.Format(GConfigure.uiCode_Panel, GGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeQarthAnimPanel);
+                    return string.Format(GConfigure.uiCode_AnimPanel, GGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeQarthAnimPanel);
                 default:
-                    return string.Format(GConfigure.uiCode_AnimPanel, GGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeOnAwake);
+                    return string.Format(GConfigure.uiCode_Mono, GGlobalFun.GetString(GConfigure.selectTransform.name), GConfigure.uicodeOnAwake);
             }
         }
-
-        // public string GetModelCode()
-        // {
-        //     return string.Format(GConfigure.modelCode, GGlobalFun.GetString(GConfigure.selectTransform.name));
-        // }
-
-        // public string GetControllerCode()
-        // {
-        //     return string.Format(GConfigure.controllerCode, GGlobalFun.GetString(GConfigure.selectTransform.name));
-        // }
 
         public override string ToString()
         {
@@ -244,10 +200,8 @@ namespace Qarth
 
             if (GFileOperation.IsDirctoryName("Assets/" + GConfigure.prefabSavePath, true))
             {
-
                 PrefabUtility.SaveAsPrefabAssetAndConnect(root.gameObject, "Assets/" + GConfigure.prefabSavePath + root.name + ".prefab", InteractionMode.AutomatedAction);
                 AssetDatabase.Refresh();
-
             }
 
         }
@@ -271,8 +225,11 @@ namespace Qarth
                 return;
             }
 
-            GFileOperation.WriteText(GConfigure.FilePath(GConfigure.MainFileName), GetMainCode());
-            // GFileOperation.WriteText(GConfigure.FilePath(GConfigure.UIFileName), GetUICode());
+            if (!GFileOperation.IsExists(GConfigure.FilePath(GConfigure.MainFileName)))
+            {
+                GFileOperation.WriteText(GConfigure.FilePath(GConfigure.MainFileName), GetMainCode());
+            }
+
             GFileOperation.WriteText(GConfigure.FilePath(GConfigure.UIBuildFileName), GetBuildUICode());
 
             // if (GConfigure.isCreateModel)
@@ -528,7 +485,7 @@ namespace Qarth
                 infos[i].isAttr = lstAttr[i];
             }
 
-            so.SetClassInfo(GConfigure.MainFileName, infos);
+            so.SetClassInfo(GConfigure.MainFileName, GConfigure.Version, infos);
 
             if (GFileOperation.IsExists(GConfigure.InfoPath))
             {
