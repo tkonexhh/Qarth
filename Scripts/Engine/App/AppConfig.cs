@@ -9,40 +9,40 @@ using System.Collections;
 
 namespace Qarth
 {
-	
-	#region 枚举
-	public enum APP_MODE
-	{
-		DebugMode,
-		TestMode,
-		ReleaseMode,
-	}
 
-	public enum eServerMode
-	{
-		kLocal,
-		kRemote
-	}
-	#endregion
+    #region 枚举
+    public enum APP_MODE
+    {
+        DebugMode,
+        TestMode,
+        ReleaseMode,
+    }
 
-	#region DebugSetting
-	[System.Serializable]
-	class DebugSetting
-	{
-		public string m_DumpPath = null;
-		public bool m_DumpToScreen = false;
-		public bool m_DumpToFile = true;
-	}
-	#endregion
+    public enum eServerMode
+    {
+        kLocal,
+        kRemote
+    }
+    #endregion
 
-	[System.Serializable]
-	public class AppConfig : ScriptableObject
-	{
+    #region DebugSetting
+    [System.Serializable]
+    class DebugSetting
+    {
+        public string m_DumpPath = null;
+        public bool m_DumpToScreen = false;
+        public bool m_DumpToFile = true;
+    }
+    #endregion
 
-	#region 初始化过程
-		private static AppConfig s_Instance;
+    [System.Serializable]
+    public class AppConfig : ScriptableObject
+    {
 
-		private static AppConfig LoadInstance()
+        #region 初始化过程
+        private static AppConfig s_Instance;
+
+        private static AppConfig LoadInstance()
         {
             ResLoader loader = ResLoader.Allocate("AppConfig", null);
 
@@ -69,24 +69,24 @@ namespace Qarth
             s_Instance = newAB;
 
             loader.Recycle2Cache();
-            
-			return s_Instance;
-		}
 
-	#endregion
+            return s_Instance;
+        }
 
-		public static AppConfig S
-		{
-			get
-			{
-				if(s_Instance == null)
-				{
-					s_Instance = LoadInstance();
-				}
-				
-				return s_Instance;
-			}
-		}
+        #endregion
+
+        public static AppConfig S
+        {
+            get
+            {
+                if (s_Instance == null)
+                {
+                    s_Instance = LoadInstance();
+                }
+
+                return s_Instance;
+            }
+        }
 
         public void InitAppConfig()
         {
@@ -97,72 +97,72 @@ namespace Qarth
         #region 数据区
 
         #region 字段
-        [SerializeField] private string 		m_ServerIp;
-		[SerializeField] private uint			m_ServerPort;
-		[SerializeField] private eServerMode	m_ServerMode = eServerMode.kLocal;
-		[SerializeField] private APP_MODE 		m_AppMode;
-		[SerializeField] private DebugSetting 	m_DebugSetting;
-        [SerializeField] private LogLevel       m_LogLevel = LogLevel.Max;
-		[SerializeField] private bool			m_IsGuideActive = false;
-        [SerializeField] private bool           m_IsResUpdateActive = false;
-        [SerializeField] private string         m_ResUpdateVersion;
-        [SerializeField] private string         m_WeMobAppKey;
-        [SerializeField] private string         m_WeMobChannelID;
+        [SerializeField] private string m_ServerIp;
+        [SerializeField] private uint m_ServerPort;
+        [SerializeField] private eServerMode m_ServerMode = eServerMode.kLocal;
+        [SerializeField] private APP_MODE m_AppMode;
+        [SerializeField] private DebugSetting m_DebugSetting;
+        [SerializeField] private LogLevel m_LogLevel = LogLevel.Max;
+        [SerializeField] private bool m_IsGuideActive = false;
+        [SerializeField] private bool m_IsResUpdateActive = false;
+        [SerializeField] private string m_ResUpdateVersion;
+        [SerializeField] private string m_WeMobAppKey;
+        [SerializeField] private string m_WeMobChannelID;
         #endregion
 
         #region 属性
 
         public bool isGuideActive
-		{
-			get { return m_IsGuideActive; }
-		}
+        {
+            get { return m_IsGuideActive; }
+        }
 
         public bool isResUpdateActive
         {
             get { return m_IsResUpdateActive; }
         }
 
-		public string serverIp
-		{
-			get { return m_ServerIp; }
-		}
+        public string serverIp
+        {
+            get { return m_ServerIp; }
+        }
 
-		public uint serverPort
-		{
-			get { return m_ServerPort; }
-		}
+        public uint serverPort
+        {
+            get { return m_ServerPort; }
+        }
 
-		public APP_MODE appMode
-		{
-			get { return m_AppMode; }
-			set
-			{
-				if(m_AppMode != value)
-				{
-					m_AppMode = value;
-				}
-			}
-		}
+        public APP_MODE appMode
+        {
+            get { return m_AppMode; }
+            set
+            {
+                if (m_AppMode != value)
+                {
+                    m_AppMode = value;
+                }
+            }
+        }
 
-		public string dumpPath
-		{
-			get { return m_DebugSetting.m_DumpPath; }
-		}
+        public string dumpPath
+        {
+            get { return m_DebugSetting.m_DumpPath; }
+        }
 
-		public bool dumpToScreen
-		{
-			get { return m_DebugSetting.m_DumpToScreen; }
-		}
+        public bool dumpToScreen
+        {
+            get { return m_DebugSetting.m_DumpToScreen; }
+        }
 
-		public bool dumpToFile
-		{
-			get { return m_DebugSetting.m_DumpToFile; }
-		}
+        public bool dumpToFile
+        {
+            get { return m_DebugSetting.m_DumpToFile; }
+        }
 
-		public eServerMode serverMode
-		{
-			get { return m_ServerMode; }
-		}
+        public eServerMode serverMode
+        {
+            get { return m_ServerMode; }
+        }
 
         public string resUpdateVersion
         {

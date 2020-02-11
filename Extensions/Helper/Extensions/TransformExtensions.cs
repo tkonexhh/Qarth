@@ -328,7 +328,20 @@ namespace Qarth
         }
         #endregion
 
+
         #region Scale
+
+        public static void SetScale(this Transform transform, float x, float y, float z)
+        {
+            var newScale = new Vector3(x, y, z);
+            transform.localScale = newScale;
+        }
+
+        public static void SetScale(this Transform transform, Vector3 scale)
+        {
+            transform.localScale = scale;
+        }
+
         /// <summary>
         /// Sets the local X scale of this transform.
         /// </summary>
@@ -368,6 +381,12 @@ namespace Qarth
         public static void SetScaleXY(this Transform transform, float x, float y)
         {
             var newScale = new Vector3(x, y, transform.localScale.z);
+            transform.localScale = newScale;
+        }
+
+        public static void SetScaleXY(this Transform transform, Vector2 vector)
+        {
+            var newScale = new Vector3(vector.x, vector.y, transform.localScale.z);
             transform.localScale = newScale;
         }
         /// <summary>

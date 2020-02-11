@@ -90,6 +90,16 @@ namespace Qarth
             go.transform.position = pos;
         }
 
+        static public void SetParent(this GameObject go, Transform parent)
+        {
+            go.transform.SetParent(parent);
+        }
+
+        static public void SetParent(this GameObject go, GameObject parent)
+        {
+            go.transform.SetParent(parent.transform);
+        }
+
         static public T AddMissingComponent<T>(this GameObject go) where T : Component
         {
             T comp = go.GetComponent<T>();
