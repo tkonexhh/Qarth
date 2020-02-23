@@ -26,6 +26,7 @@ namespace Qarth
         public static int space = 20;
         public static GUILayoutOption toggleMaxWidth = GUILayout.Width(50);
         public static GUILayoutOption popupMaxWidth = GUILayout.Width(100);
+        public static GUILayoutOption attriNameMaxWidth = GUILayout.Width(120);
 
         public bool isVariable = false;
         public bool isAttribute = false;
@@ -34,30 +35,35 @@ namespace Qarth
         private int oldIndex;
         public bool isOpen = true;
         private string[] comNames;
+        public string attributeName = "";
 
         public bool isSelectEvent = true;
 
         public Action<string> onTypeChanged;
+
         public void SetIndex(string name, Transform t)
         {
             comNames = GGlobalFun.GetComponentsName(t);
-            //asd = new List<bool>();
+
             int count = comNames.Length;
             for (int i = 0; i < count; i++)
             {
-                //asd.Add(false);
                 if (name == comNames[i])
                 {
                     index = i;
                     break;
                 }
             }
+        }
 
-
+        public void SetName(string name)
+        {
+            attributeName = "m_" + name;
         }
 
         public void Reset()
         {
+
             comNames = null;
         }
         //FlagEnum flagEnum;
@@ -84,11 +90,18 @@ namespace Qarth
                     GUI.enabled = true;
                 }
 
+                attributeName = EditorGUILayout.TextField(attributeName, attriNameMaxWidth);
+
                 oldIndex = index;
                 comNames = GGlobalFun.GetComponentsName(t);
 
+                if (comNames.Length > 1)
+                {
+                    //EditorGUILayout.b
+                }
+
                 index = EditorGUILayout.Popup(index, comNames, popupMaxWidth);
-                //flagEnum = (FlagEnum)EditorGUILayout.EnumFlagsField("", flagEnum, popupMaxWidth);
+
                 if (oldIndex != index)
                 {
                     onTypeChanged(comNames[index]);
@@ -111,35 +124,5 @@ namespace Qarth
 
             return isOpen;
         }
-
-        // private Type CreteEnum()
-        // {
-        //     AppDomain currentDomain = AppDomain.CurrentDomain;
-        //     AssemblyName myAssemblyName = new AssemblyName();
-        //     myAssemblyName.Name = "EmittedAssembly";
-
-        //     // Create the dynamic assembly.
-        //     AssemblyBuilder myAssemblyBuilder = currentDomain.DefineDynamicAssembly(myAssemblyName,
-        //                                              AssemblyBuilderAccess.Save);
-        //     // Create a dynamic module.
-        //     ModuleBuilder myModuleBuilder = myAssemblyBuilder.DefineDynamicModule("EmittedModule",
-        //                                                           "EmittedModule.mod");
-        //     // Create a dynamic Enum.
-        //     EnumBuilder myEnumBuilder = myModuleBuilder.DefineEnum("MyNamespace.MyEnum",
-        //                                 TypeAttributes.Public, typeof(Int32));
-
-        //     FieldBuilder myFieldBuilder1 = myEnumBuilder.DefineLiteral("FieldOne", 1);
-        //     FieldBuilder myFieldBuilder2 = myEnumBuilder.DefineLiteral("FieldTwo", 2);
-
-        //     return myEnumBuilder.CreateType();
-        // }
-
-        // enum FlagEnum
-        // {
-        //     // None = 0,
-        //     A = 1 << 0,//0001
-        //     B = 1 << 1,//0010
-        //     C = 1 << 2,//0100
-        // }
     }
 }

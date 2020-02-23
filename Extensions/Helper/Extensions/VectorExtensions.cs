@@ -195,6 +195,13 @@ namespace Qarth
             result.y += pivotPoint.y;
             return result;
         }
+
+        public static Vector2 ToVector2(this Vector3 v3)
+        {
+
+            Vector2 result = new Vector2(v3.x, v3.y);
+            return result;
+        }
         #endregion
     }
 }

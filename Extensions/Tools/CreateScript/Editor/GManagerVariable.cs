@@ -45,6 +45,7 @@ namespace Qarth
                 var v = this[obj];
                 v.state.isVariable = true;
                 v.state.isAttribute = fields[i].isAttr;
+                v.state.attributeName = fields[i].name;
                 v.state.isEvent = fields[i].isEvent;
             }
 
@@ -74,7 +75,9 @@ namespace Qarth
             foreach (var value in dic.Values)
             {
                 if (!value.state.isVariable) continue;
-                variable.AppendFormat(GConfigure.variableFormat, value.type, value.name);
+                //variable.AppendFormat(GConfigure.variableFormat, value.type, value.name);
+                variable.AppendFormat(GConfigure.variableFormat, value.type, value.GetCustomAttributeName());
+
 
                 if (isFind)
                     find.AppendFormat(GConfigure.findFormat, value.name, value.path, value.type);
@@ -202,6 +205,8 @@ namespace Qarth
             {
                 PrefabUtility.SaveAsPrefabAssetAndConnect(root.gameObject, "Assets/" + GConfigure.prefabSavePath + root.name + ".prefab", InteractionMode.AutomatedAction);
                 AssetDatabase.Refresh();
+
+                EditorUtility.DisplayDialog(GConfigure.msgTitle, GConfigure.createPrefabSuccessTitle, GConfigure.ok);
             }
 
         }
@@ -231,17 +236,6 @@ namespace Qarth
             }
 
             GFileOperation.WriteText(GConfigure.FilePath(GConfigure.UIBuildFileName), GetBuildUICode());
-
-            // if (GConfigure.isCreateModel)
-            // {
-            //     GFileOperation.WriteText(GConfigure.FilePath(GConfigure.ModelFileName), GetModelCode());
-            // }
-
-            // if (GConfigure.isCreateController)
-            // {
-            //     GFileOperation.WriteText(GConfigure.FilePath(GConfigure.ControllerFileName), GetControllerCode());
-            //     GFileOperation.WriteText(GConfigure.FilePath(GConfigure.ControllerBuildFileName), GetControllerBuildCode());
-            // }
 
             GetBindingInfo();
             // if (GConfigure.Version == ScriptVersion.Mono)
@@ -273,11 +267,6 @@ namespace Qarth
             }
             //重新更新BindUI文件
             GFileOperation.WriteText(GConfigure.FilePath(GConfigure.UIBuildFileName), GetBuildUICode(), FileMode.Create);
-
-            // if (GConfigure.isCreateController)
-            // {
-            //     GFileOperation.WriteText(GConfigure.FilePath(GConfigure.ControllerBuildFileName), GetControllerBuildCode(), FileMode.Create);
-            // }
 
             GetBindingInfo();
             // if (GConfigure.Version == ScriptVersion.Mono)
@@ -464,7 +453,8 @@ namespace Qarth
                 if (target.state.isVariable)
                 {
 
-                    string name = string.Format("m_{0}", target.name);
+                    //string name = string.Format("m_{0}", target.name);
+                    string name = target.GetCustomAttributeName();
                     k.Add(name);
                     t.Add(target.type.ToString());
                     p.Add(GGlobalFun.GetGameObjectPath(key, GConfigure.selectTransform));

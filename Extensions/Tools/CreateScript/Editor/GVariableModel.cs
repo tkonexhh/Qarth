@@ -24,6 +24,11 @@ namespace Qarth
         public string eventType;
         public bool isUI = false;
 
+        public string GetCustomAttributeName()
+        {
+            return state.attributeName;
+        }
+
         public QVariableState state = new QVariableState();
 
         private string[] parameters = new string[]
@@ -37,6 +42,7 @@ namespace Qarth
             path = GGlobalFun.GetGameObjectPath(t, Selection.activeTransform);
             type = GetUIType();
             name = GetName(string.Format("{0}_{1}", type, t.name), t);
+
             state.SetIndex(type, t);
             OnTypeChanged(type);
             state.onTypeChanged = OnTypeChanged;
@@ -58,7 +64,7 @@ namespace Qarth
         {
             type = value;
             name = GetName(string.Format("{0}{1}", GConfigure.GetShortTypeName(type), GConfigure.RemoveFrontTypeName(target.name)), target);
-
+            state.SetName(name);
             isUI = false;
             state.isSelectEvent = false;
             if (!IsUIType(type))

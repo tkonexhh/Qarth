@@ -51,9 +51,10 @@ namespace Qarth
         public static string plugCreate = "没有使用插件生成对应的脚本呢";
         public static string copy = "复制到剪贴板啦！";
         public static string noMountScript = "还没挂载脚本呢～";
+        public static string createPrefabSuccessTitle = "预制体创建成功";
 
 
-        public static string variableFormat = "\t\t[SerializeField] private {0} m_{1};\n";
+        public static string variableFormat = "\t\t[SerializeField] private {0} {1};\n";
         public static string findFormat = "\t\t\tm_{0} = transform.Find(\"{1}\").GetComponent<{2}>();\n";
         public static string attributeVariableFormat = "\t\tprivate {0,-45} m_{1};\n";
         public static string attributeFormat = "\t\tpublic {0} {1} {{ get {{ return m_{1}; }} }}\n";
