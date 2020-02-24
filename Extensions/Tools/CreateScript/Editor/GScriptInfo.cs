@@ -60,12 +60,20 @@ namespace Qarth
         [Serializable]
         public class FieldInfo
         {
-            public string name;
-            public string type;
             public string path;
-            public bool isEvent;
-            public bool isAttr;
+            public FieldAttrInfo mainAttrInfo = new FieldAttrInfo();
+            public List<FieldAttrInfo> subField;
 
         }
+
+        [Serializable]
+        public class FieldAttrInfo
+        {
+            public string name;
+            public string type;
+            public bool isEvent;
+            public bool isAttr;
+        }
+
     }
 }

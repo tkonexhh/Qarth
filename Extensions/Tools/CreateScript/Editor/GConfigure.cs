@@ -18,6 +18,13 @@ namespace Qarth
         public const string referencedefaultPath = "Scripts/Game/UIScripts/";
         public const string prefabdefaultPath = "Resources/UI/Panels/";
         public const string namespaceStr = "GameWish.Game";
+        public const int space = 20;
+
+
+        public static GUILayoutOption toggleMaxWidth = GUILayout.Width(50);
+        public static GUILayoutOption popupMaxWidth = GUILayout.Width(100);
+        public static GUILayoutOption attriNameMaxWidth = GUILayout.Width(120);
+        public static GUILayoutOption plusMaxWidth = GUILayout.Width(20);
     }
 
     public partial class GConfigure
@@ -27,8 +34,6 @@ namespace Qarth
         public static Transform selectTransform;
         public static string referencePath;
         public static string prefabSavePath;
-        // public static bool isCreateModel = false;
-        // public static bool isCreateController = true;
 
         public static string InfoPath
         {
@@ -57,9 +62,9 @@ namespace Qarth
         public static string variableFormat = "\t\t[SerializeField] private {0} {1};\n";
         public static string findFormat = "\t\t\tm_{0} = transform.Find(\"{1}\").GetComponent<{2}>();\n";
         public static string attributeVariableFormat = "\t\tprivate {0,-45} m_{1};\n";
-        public static string attributeFormat = "\t\tpublic {0} {1} {{ get {{ return m_{1}; }} }}\n";
+        //public static string attributeFormat = "\t\tpublic {0} {1} {{ get {{ return m_{1}; }} }}\n";
         public static string newAttributeFormat = "\t\tq{0,-49} = new Q{1}({0});\n";
-        public static string attribute2Format = "\t\tpublic {0} {1} {{ get {{ return m_{1}; }} }}\n";
+        public static string attributeFormat = "\t\tpublic {0} {1} {{ get {{ return m_{1}; }} }}\n";
         public static string registerFormat = "\t\t\tm_{0}.{1}.AddListener({2});\n";
         public static string controllerEventFormat = "\t\tpublic Action{0} {1};\n";
         public static string functionFormat = "\t\tprivate void {0}({1})\n\t\t{{\n\t\t\tif( {2} != null ){2}({3});\n\t\t}}\n";
@@ -84,14 +89,10 @@ namespace Qarth
         // /public static string UIFileName { get { return GetFileName("UI"); } }
         public static string UIBuildFileName { get { return GetFileName("BuildUI"); } }
         // public static string ModelFileName { get { return GetFileName("Model"); } }
-        // public static string ControllerFileName { get { return GetFileName("Controller"); } }
-        // public static string ControllerBuildFileName { get { return GetFileName("BuildController"); } }
 
         // public static string UIName { get { return GetClassName("UI"); } }
         // public static string UIBuildName { get { return GetClassName("BuildUI"); } }
         // public static string ModelName { get { return GetClassName("Model"); } }
-        // public static string ControllerName { get { return GetClassName("Controller"); } }
-        // public static string ControllerBuildName { get { return GetClassName("BuildController"); } }
 
         public static readonly string uiCode_Mono =
             "using UnityEngine;\n" +
@@ -141,42 +142,6 @@ namespace Qarth
             "\t\t}}\n" +
             "{7}";
 
-        //     public static readonly string modelCode =
-        //         "\n\npublic class {0}_Model\n{{\n\tpublic {0}_Model()\n\t{{\n\n\t}}\n}}";
-
-        //     public static readonly string controllerCode =
-        //         "using UnityEngine;\n" +
-        //         "using UnityEngine.EventSystems;\n\n" +
-        //         "\n\npublic partial class {0}_Controller\n{{\n" +
-        //         "\tpartial void OnAwake()\n\t{{\n\n\t}}\n}}";
-
-        //     public static readonly string controllerBuildCode =
-        //         "using UnityEngine;\n\n" +
-        //         "\n\npublic partial class {0}_Controller:IController\n{{\n" +
-        //         "\tprivate {0}_UI ui;\n" +
-        //         "\tprivate {0}_Model model = new {0}_Model();\n\n" +
-        //         "\tpublic {0}_Controller({0}_UI ui)\n\t{{\n" +
-        //         "\t\tthis.ui = ui;\n" +
-        //         "\t\tOnAwake();\n" +
-        //         "{1}" +
-        //         "\t}}\n" +
-        //         "\tpartial void OnAwake();\n" +
-        //         "{2}\n{3}\n" +
-        //         "}}";
-
-        //     public static readonly string controllerBuildCode2 =
-        // "using UnityEngine;\n\n" +
-        // "\n\npublic partial class {0}_Controller:IController\n{{\n" +
-        // "\tprivate {0}_UI ui;\n" +
-        // //"\tprivate {0}_Model model = new {0}_Model();\n\n" +
-        // "\tpublic {0}_Controller({0}_UI ui)\n\t{{\n" +
-        // "\t\tthis.ui = ui;\n" +
-        // "\t\tOnAwake();\n" +
-        // "{1}" +
-        // "\t}}\n" +
-        // "\tpartial void OnAwake();\n" +
-        // "{2}\n{3}\n" +
-        // "}}";
 
         public static ScriptVersion Version
         {
@@ -270,6 +235,8 @@ namespace Qarth
         }
 
         private static string[] s_FrontStr = new string[] { "Btn", "Button", "Image", "Img", "Transform", "Trans", "GameObject", "Obj", "Text", "Txt" };
+
+        //优化名字
         public static string RemoveFrontTypeName(string name)
         {
             for (int i = 0; i < s_FrontStr.Length; i++)

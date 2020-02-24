@@ -9,37 +9,43 @@ using System.Reflection.Emit;
 namespace Qarth
 {
 
-    // public struct VariableJson
-    // {
-    //     public bool isVariable;
-    //     public bool isAttribute;
-    //     public bool isEvent;
-    //     public int index;
-    //     public bool isOpen;
-    //     public string name;
-    //     public string type;
-    //     public string findPath;
-    // }
-
     public class QVariableState
     {
-        public static int space = 20;
-        public static GUILayoutOption toggleMaxWidth = GUILayout.Width(50);
-        public static GUILayoutOption popupMaxWidth = GUILayout.Width(100);
-        public static GUILayoutOption attriNameMaxWidth = GUILayout.Width(120);
-
         public bool isVariable = false;
         public bool isAttribute = false;
         public bool isEvent = false;
+        public string attributeName = "";
+
+
         public int index = 0;
         private int oldIndex;
         public bool isOpen = true;
         private string[] comNames;
-        public string attributeName = "";
 
         public bool isSelectEvent = true;
 
-        public Action<string> onTypeChanged;
+        private QVariableState parentState = null;
+        public QVariableState ParentState
+        {
+            set { parentState = value; }
+        }
+        private List<QVariableState> lstSubState = new List<QVariableState>();
+        public List<QVariableState> LstSubState
+        {
+            get
+            {
+                return lstSubState;
+            }
+        }
+
+        public GVariableModel Model
+        {
+            set;
+            get;
+        }
+        public Action<QVariableState, string> onTypeChanged;
+        public Action<QVariableState> onSubStateAdd;
+        public Action<QVariableState> onSubStateDel;
 
         public void SetIndex(string name, Transform t)
         {
@@ -63,51 +69,75 @@ namespace Qarth
 
         public void Reset()
         {
-
             comNames = null;
+            lstSubState.Clear();
         }
-        //FlagEnum flagEnum;
+
         public bool Update(Transform t, int depth)
         {
             var rect = EditorGUILayout.BeginHorizontal();
             {
                 if (isVariable) EditorGUI.DrawRect(rect, new Color(0, 0.5f, 0, 0.3f));
 
-                isVariable = EditorGUILayout.ToggleLeft("变量", isVariable, toggleMaxWidth);
+                if (parentState != null)
+                {
+                    EditorGUILayout.LabelField("----", GConfigureDefine.toggleMaxWidth);
+                    if (GUILayout.Button("-", GConfigureDefine.plusMaxWidth))
+                    {
+                        parentState.lstSubState.Remove(this);
+                        //删去一个sub
+                        //parentState.lsts
+                        parentState.onSubStateDel(this);
+                    }
+                }
+
+                isVariable = EditorGUILayout.ToggleLeft("变量", isVariable, GConfigureDefine.toggleMaxWidth);
 
                 if (!isVariable)
                 {
                     isAttribute = false;
                     isEvent = false;
+                    lstSubState.Clear();
+                    // if (parentState != null)
+                    //     parentState.onSubStateChanged();
                 }
 
                 {
                     GUI.enabled = isVariable;
-                    isAttribute = EditorGUILayout.ToggleLeft("属性器", isAttribute, toggleMaxWidth);
+                    isAttribute = EditorGUILayout.ToggleLeft("属性器", isAttribute, GConfigureDefine.toggleMaxWidth);
 
                     GUI.enabled = !isVariable ? false : isSelectEvent;
-                    isEvent = EditorGUILayout.ToggleLeft("事件", isEvent, toggleMaxWidth);
+                    isEvent = EditorGUILayout.ToggleLeft("事件", isEvent, GConfigureDefine.toggleMaxWidth);
+
                     GUI.enabled = true;
+                    if (parentState == null)
+                    {
+                        if (isVariable && GUILayout.Button("+", GConfigureDefine.plusMaxWidth))
+                        {
+                            var subState = new QVariableState();
+                            subState.comNames = comNames;
+                            subState.isVariable = true;
+                            subState.parentState = this;
+                            lstSubState.Add(subState);
+                            onSubStateAdd(subState);
+                            //添加一个sub
+                        }
+                    }
                 }
 
-                attributeName = EditorGUILayout.TextField(attributeName, attriNameMaxWidth);
+                attributeName = EditorGUILayout.TextField(attributeName, GConfigureDefine.attriNameMaxWidth);
 
                 oldIndex = index;
                 comNames = GGlobalFun.GetComponentsName(t);
 
-                if (comNames.Length > 1)
-                {
-                    //EditorGUILayout.b
-                }
-
-                index = EditorGUILayout.Popup(index, comNames, popupMaxWidth);
+                index = EditorGUILayout.Popup(index, comNames, GConfigureDefine.popupMaxWidth);
 
                 if (oldIndex != index)
                 {
-                    onTypeChanged(comNames[index]);
+                    onTypeChanged(this, comNames[index]);
                 }
 
-                GUILayout.Space(depth * space);
+                GUILayout.Space(depth * GConfigureDefine.space);
 
                 if (t.childCount > 0)
                 {
@@ -119,8 +149,15 @@ namespace Qarth
                 }
             }
             EditorGUILayout.EndHorizontal();
-
             EditorGUILayout.Space();
+
+            for (int i = 0; i < lstSubState.Count; i++)
+            {
+                EditorGUILayout.BeginVertical();
+                lstSubState[i].Update(t, depth);
+                EditorGUILayout.EndVertical();
+            }
+
 
             return isOpen;
         }

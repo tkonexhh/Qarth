@@ -97,22 +97,6 @@ namespace Qarth
                 EditorGUILayout.Space();
                 GConfigure.Version = (ScriptVersion)EditorGUILayout.Popup("类型", (int)GConfigure.Version, GConfigure.versionStr);
                 EditorGUILayout.Space();
-                // EditorGUILayout.BeginHorizontal();
-                // {
-                //     if (GConfigure.Version == ScriptVersion.Mono)
-                //     {
-                //         GConfigure.isCreateModel = EditorPrefs.GetBool("是否生成Model", true);
-                //         GConfigure.isCreateModel = EditorGUILayout.ToggleLeft("是否生成Model", GConfigure.isCreateModel, GUILayout.MaxWidth(100));
-                //         EditorPrefs.SetBool("是否生成Model", GConfigure.isCreateModel);
-                //     }
-
-                //     GConfigure.isCreateController = EditorPrefs.GetBool("是否生成Controller", true);
-                //     GConfigure.isCreateController = EditorGUILayout.ToggleLeft("是否生成Controller", GConfigure.isCreateController, GUILayout.MaxWidth(120));
-                //     EditorPrefs.SetBool("是否生成Controller", GConfigure.isCreateController);
-
-                // }
-                // EditorGUILayout.EndHorizontal();
-                EditorGUILayout.Space();
                 EditorGUILayout.BeginHorizontal();
                 {
 

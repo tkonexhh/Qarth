@@ -44,9 +44,28 @@ namespace Qarth
                 if (obj == null) continue;
                 var v = this[obj];
                 v.state.isVariable = true;
-                v.state.isAttribute = fields[i].isAttr;
-                v.state.attributeName = fields[i].name;
-                v.state.isEvent = fields[i].isEvent;
+                v.state.isAttribute = fields[i].mainAttrInfo.isAttr;
+                v.state.attributeName = fields[i].mainAttrInfo.name;
+                v.state.isEvent = fields[i].mainAttrInfo.isEvent;
+
+                v.LstSubModel.Clear();
+                v.state.LstSubState.Clear();
+                for (int j = 0; j < fields[i].subField.Count; j++)
+                {
+                    var subModel = new GVariableModel(obj);
+
+                    v.LstSubModel.Add(subModel);
+                    var subState = new QVariableState();
+                    subModel.state = subState;
+                    subState.Model = subModel;
+                    subState.ParentState = v.state;
+                    subState.isVariable = true;
+                    subState.SetIndex(fields[i].subField[j].type, obj);
+                    subState.isAttribute = fields[i].subField[j].isAttr;
+                    subState.attributeName = fields[i].subField[j].name;
+                    subState.isEvent = fields[i].subField[j].isEvent;
+                    v.state.LstSubState.Add(subState);
+                }
             }
 
             GConfigure.Version = so.GetVersion(GConfigure.selectTransform.name);
@@ -76,23 +95,26 @@ namespace Qarth
             {
                 if (!value.state.isVariable) continue;
                 //variable.AppendFormat(GConfigure.variableFormat, value.type, value.name);
-                variable.AppendFormat(GConfigure.variableFormat, value.type, value.GetCustomAttributeName());
+                variable.AppendFormat(GConfigure.variableFormat, value.type, value.state.attributeName);
 
+                for (int i = 0; i < value.LstSubModel.Count; i++)
+                {
+                    if (value.LstSubModel[i].state.isVariable)
+                        variable.AppendFormat(GConfigure.variableFormat, value.LstSubModel[i].type, value.LstSubModel[i].state.attributeName);
+                }
 
                 if (isFind)
                     find.AppendFormat(GConfigure.findFormat, value.name, value.path, value.type);
 
                 if (value.state.isAttribute)
                 {
-                    // if (value.isUI)
-                    // {
-                    //     attribute.AppendFormat(GConfigure.attributeFormat, value.type, value.name);
-                    // }
-                    // else
-                    // {
-                    //     attribute.AppendFormat(GConfigure.attribute2Format, value.type, value.name);
-                    // }
-                    attribute.AppendFormat(GConfigure.attribute2Format, value.type, value.name);
+                    attribute.AppendFormat(GConfigure.attributeFormat, value.type, value.name);
+                }
+
+                for (int i = 0; i < value.LstSubModel.Count; i++)
+                {
+                    if (value.LstSubModel[i].state.isAttribute)
+                        attribute.AppendFormat(GConfigure.attributeFormat, value.LstSubModel[i].type, value.LstSubModel[i].name);
                 }
 
                 if (value.variableEvent != string.Empty && value.state.isEvent)
@@ -102,7 +124,7 @@ namespace Qarth
                     function.AppendFormat(GConfigure.functionFormat, value.eventName,
                         value.eventType + (!value.eventType.IsLengthZero() ? " value" : string.Empty), value.attributeName,
                         value.IsButton() ? string.Empty : "value");
-                    //Debug.Log(value.IsButton());
+
                 }
             }
 
@@ -346,8 +368,6 @@ namespace Qarth
             var root = GConfigure.selectTransform;
             var target = root.GetComponent(type);
 
-            //if (GConfigure.Version == ScriptVersion.Mono)
-            //{
             var so = AssetDatabase.LoadAssetAtPath<GScriptInfo>(GConfigure.InfoPath);
             if (so == null)
             {
@@ -361,70 +381,15 @@ namespace Qarth
             }
             foreach (var info in infos)
             {
-                if (string.IsNullOrEmpty(info.name)) continue;
-                type.InvokeMember(info.name,
+                if (string.IsNullOrEmpty(info.mainAttrInfo.name)) continue;
+                type.InvokeMember(info.mainAttrInfo.name,
                                 BindingFlags.SetField |
                                 BindingFlags.Instance |
                                 BindingFlags.NonPublic,
-                                null, target, new object[] { root.Find(info.path).GetComponent(info.type) }, null, null, null);
+                                null, target, new object[] { root.Find(info.path).GetComponent(info.mainAttrInfo.type) }, null, null, null);
             }
-            //}
 
-            // if (GConfigure.Version == ScriptVersion.Mono)
-            // {
-            //     if (!GFileOperation.IsExists(GConfigure.GetInfoPath()))
-            //     {
-            //         EditorUtility.DisplayDialog(GConfigure.msgTitle, GConfigure.plugCreate, GConfigure.ok);
-            //         return;
-            //     }
-            //     var value = GFileOperation.ReadText(GConfigure.GetInfoPath());
-            //     var jd = JsonMapper.ToObject(value);
-            //     if (jd.IsArray)
-            //     {
-            //         for (int i = 0; i < jd.Count; i++)
-            //         {
-            //             VariableJson vj = JsonMapper.ToObject<VariableJson>(jd[i].ToJson());
-            //             if (string.IsNullOrEmpty(vj.name)) continue;
-            //             type.InvokeMember(vj.name,
-            //                             BindingFlags.SetField |
-            //                             BindingFlags.Instance |
-            //                             BindingFlags.NonPublic,
-            //                             null, target, new object[] { root.Find(vj.findPath).GetComponent(vj.type) }, null, null, null);
-            //         }
-            //     }
-            // }
-
-            // var obj = PrefabUtility.GetCorrespondingObjectFromOriginalSource(root.gameObject);
-            // if (obj != null)
-            // {
-            //     PrefabUtility.SaveAsPrefabAssetAndConnect(root.gameObject, obj, ReplacePrefabOptions.ConnectToPrefab);
-            //     AssetDatabase.Refresh();
-            // }
         }
-
-
-        // public void GetBindingInfoToJson()
-        // {
-        //     if (GConfigure.selectTransform == null) return;
-
-        //     JsonData jd = new JsonData();
-        //     foreach (var item in dic)
-        //     {
-        //         if (!item.Value.state.isVariable) continue;
-        //         VariableJson vj = new VariableJson();
-        //         var state = item.Value.state;
-        //         vj.isOpen = state.isOpen;
-        //         vj.isAttribute = state.isAttribute;
-        //         vj.isEvent = state.isEvent;
-        //         vj.isVariable = state.isVariable;
-        //         vj.index = state.index;
-        //         vj.name = item.Value.name;
-        //         vj.type = item.Value.type;
-        //         vj.findPath = GGlobalFun.GetGameObjectPath(item.Key, GConfigure.selectTransform);
-        //         jd.Add(JsonMapper.ToObject(JsonMapper.ToJson(vj)));
-        //     }
-        //     GFileOperation.WriteText(GConfigure.GetInfoPath(), jd.ToJson());
-        // }
 
         private void GetBindingInfo()
         {
@@ -440,40 +405,36 @@ namespace Qarth
 
             if (so == null) return;
 
-            List<string> k = new List<string>(dic.Count);
-            List<string> t = new List<string>(dic.Count);
-            List<string> p = new List<string>(dic.Count);
-
-            List<bool> lstEvent = new List<bool>(dic.Count);
-            List<bool> lstAttr = new List<bool>(dic.Count);
+            List<GScriptInfo.FieldInfo> fieldInfos = new List<GScriptInfo.FieldInfo>();
 
             foreach (var key in dic.Keys)
             {
                 var target = dic[key];
                 if (target.state.isVariable)
                 {
+                    GScriptInfo.FieldInfo info = new GScriptInfo.FieldInfo();
+                    info.path = GGlobalFun.GetGameObjectPath(key, GConfigure.selectTransform);
+                    info.mainAttrInfo.name = target.state.attributeName;
+                    info.mainAttrInfo.type = target.type.ToString();
+                    info.mainAttrInfo.isAttr = target.state.isAttribute;
+                    info.mainAttrInfo.isEvent = target.state.isEvent;
 
-                    //string name = string.Format("m_{0}", target.name);
-                    string name = target.GetCustomAttributeName();
-                    k.Add(name);
-                    t.Add(target.type.ToString());
-                    p.Add(GGlobalFun.GetGameObjectPath(key, GConfigure.selectTransform));
-                    lstEvent.Add(target.state.isEvent);
-                    lstAttr.Add(target.state.isAttribute);
+                    var subStates = target.state.LstSubState;
+                    info.subField = new List<GScriptInfo.FieldAttrInfo>();
+                    for (int i = 0; i < subStates.Count; i++)
+                    {
+                        GScriptInfo.FieldAttrInfo subInfo = new GScriptInfo.FieldAttrInfo();
+                        subInfo.name = subStates[i].attributeName;
+                        subInfo.type = subStates[i].Model.type.ToString();
+                        subInfo.isAttr = subStates[i].isAttribute;
+                        subInfo.isEvent = subStates[i].isEvent;
+                        info.subField.Add(subInfo);
+                    }
+                    fieldInfos.Add(info);
                 }
             }
 
-            int count = k.Count;
-            var infos = new GScriptInfo.FieldInfo[count];
-            for (int i = 0; i < count; i++)
-            {
-                infos[i] = new GScriptInfo.FieldInfo();
-                infos[i].name = k[i];
-                infos[i].type = t[i];
-                infos[i].path = p[i];
-                infos[i].isEvent = lstEvent[i];
-                infos[i].isAttr = lstAttr[i];
-            }
+            var infos = fieldInfos.ToArray();
 
             so.SetClassInfo(GConfigure.MainFileName, GConfigure.Version, infos);
 
