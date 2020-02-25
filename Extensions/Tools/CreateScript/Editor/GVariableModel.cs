@@ -29,7 +29,7 @@ namespace Qarth
         public string name;
         public string type;
         public string variableEvent;
-        public string attributeName;
+        public string actionName;
         public string eventName;
         public string eventType;
         public bool isUI = false;
@@ -74,7 +74,7 @@ namespace Qarth
             type =
             eventType =
             variableEvent =
-            attributeName =
+            actionName =
             eventName = string.Empty;
             state.Reset();
             lstSubModel.Clear();
@@ -83,7 +83,7 @@ namespace Qarth
         private void OnTypeChanged(QVariableState state, string value)
         {
             state.Model.type = value;
-            state.Model.name = GetName(string.Format("{0}{1}", GConfigure.GetShortTypeName(type), GConfigure.RemoveFrontTypeName(target.name)), target);
+            state.Model.name = GetName(string.Format("{0}{1}", GConfigure.GetShortTypeName(state.Model.type), GConfigure.RemoveFrontTypeName(target.name)), target);
             state.SetName(state.Model.name);
             state.Model.isUI = false;
             state.isSelectEvent = false;
@@ -91,11 +91,12 @@ namespace Qarth
             {
                 state.Model.eventType =
                 state.Model.variableEvent =
-                state.Model.attributeName =
+                state.Model.actionName =
                 state.Model.eventName = string.Empty;
                 return;
             }
-            var uiType = (UIType)Enum.Parse(typeof(UIType), type);
+            var uiType = (UIType)Enum.Parse(typeof(UIType), state.Model.type);
+
             state.Model.variableEvent = string.Empty;
             switch (uiType)
             {
@@ -114,13 +115,26 @@ namespace Qarth
                     break;
             }
 
+
             if (state.Model.variableEvent != string.Empty)
             {
                 state.isSelectEvent = true;
                 state.Model.eventType = parameters[(int)uiType];
-                state.Model.attributeName = state.Model.variableEvent.Insert(state.Model.variableEvent.Length, state.Model.name);
-                state.Model.eventName = GGlobalFun.GetFirstUpper(state.Model.attributeName);
+                state.Model.actionName = state.Model.variableEvent.Insert(state.Model.variableEvent.Length, state.attributeName);
+                state.Model.eventName = GGlobalFun.GetFirstUpper(state.Model.actionName);
             }
+
+            //Debug.LogError(state.Model.actionName + "---" + state.Model.variableEvent + "---" + state.attributeName);
+        }
+
+        public string GetActionMethodName()
+        {
+            return state.Model.actionName = state.Model.variableEvent.Insert(state.Model.variableEvent.Length, state.attributeName);
+        }
+
+        public string GetEventMethodName()
+        {
+            return state.Model.eventName = GGlobalFun.GetFirstUpper(state.Model.actionName);
         }
 
         private void OnSubStateAdd(QVariableState state)
@@ -129,6 +143,13 @@ namespace Qarth
             model.state = state;
             Init(model.state, model);
             lstSubModel.Add(model);
+        }
+
+        public void AddSubState(QVariableState subState)
+        {
+            subState.ParentState = state;
+            state.LstSubState.Add(subState);
+            OnSubStateAdd(subState);
         }
 
         private void OnSubStateDel(QVariableState state)

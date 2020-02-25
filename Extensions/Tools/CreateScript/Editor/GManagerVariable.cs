@@ -52,19 +52,15 @@ namespace Qarth
                 v.state.LstSubState.Clear();
                 for (int j = 0; j < fields[i].subField.Count; j++)
                 {
-                    var subModel = new GVariableModel(obj);
-
-                    v.LstSubModel.Add(subModel);
                     var subState = new QVariableState();
-                    subModel.state = subState;
-                    subState.Model = subModel;
-                    subState.ParentState = v.state;
                     subState.isVariable = true;
-                    subState.SetIndex(fields[i].subField[j].type, obj);
                     subState.isAttribute = fields[i].subField[j].isAttr;
-                    subState.attributeName = fields[i].subField[j].name;
+
                     subState.isEvent = fields[i].subField[j].isEvent;
-                    v.state.LstSubState.Add(subState);
+                    subState.SetIndex(fields[i].subField[j].type, obj);
+                    v.AddSubState(subState);
+                    subState.Model.type = fields[i].subField[j].type;
+                    subState.attributeName = fields[i].subField[j].name;
                 }
             }
 
@@ -108,23 +104,46 @@ namespace Qarth
 
                 if (value.state.isAttribute)
                 {
-                    attribute.AppendFormat(GConfigure.attributeFormat, value.type, value.name);
+                    attribute.AppendFormat(GConfigure.attributeFormat, value.type, value.state.attributeName);
                 }
 
                 for (int i = 0; i < value.LstSubModel.Count; i++)
                 {
                     if (value.LstSubModel[i].state.isAttribute)
-                        attribute.AppendFormat(GConfigure.attributeFormat, value.LstSubModel[i].type, value.LstSubModel[i].name);
+                        attribute.AppendFormat(GConfigure.attributeFormat, value.LstSubModel[i].type, value.LstSubModel[i].state.attributeName);
                 }
 
                 if (value.variableEvent != string.Empty && value.state.isEvent)
                 {
-                    register.AppendFormat(GConfigure.registerFormat, value.name, value.variableEvent, value.eventName);
-                    controllerEvent.AppendFormat(GConfigure.controllerEventFormat, value.IsButton() ? string.Empty : string.Format("<{0}>", value.eventType), value.attributeName);
-                    function.AppendFormat(GConfigure.functionFormat, value.eventName,
-                        value.eventType + (!value.eventType.IsLengthZero() ? " value" : string.Empty), value.attributeName,
-                        value.IsButton() ? string.Empty : "value");
+                    controllerEvent.AppendFormat(GConfigure.controllerEventFormat,
+                        value.IsButton() ? string.Empty : string.Format("<{0}>", value.eventType),
+                        value.GetActionMethodName());
 
+                    register.AppendFormat(GConfigure.registerFormat, value.state.attributeName, value.variableEvent, value.GetEventMethodName());
+
+                    function.AppendFormat(GConfigure.functionFormat, value.eventName,
+                        value.eventType + (!value.eventType.IsLengthZero() ? " value" : string.Empty),
+                        value.state.attributeName,
+                        value.actionName,
+                        value.IsButton() ? string.Empty : "value");
+                }
+
+                for (int i = 0; i < value.LstSubModel.Count; i++)
+                {
+                    if (value.LstSubModel[i].variableEvent != string.Empty && value.LstSubModel[i].state.isEvent)
+                    {
+                        controllerEvent.AppendFormat(GConfigure.controllerEventFormat,
+                            value.LstSubModel[i].IsButton() ? string.Empty : string.Format("<{0}>", value.LstSubModel[i].eventType),
+                            value.LstSubModel[i].GetActionMethodName());
+
+                        register.AppendFormat(GConfigure.registerFormat, value.LstSubModel[i].state.attributeName, value.LstSubModel[i].variableEvent, value.LstSubModel[i].GetEventMethodName());
+
+                        function.AppendFormat(GConfigure.functionFormat, value.LstSubModel[i].eventName,
+                            value.LstSubModel[i].eventType + (!value.LstSubModel[i].eventType.IsLengthZero() ? " value" : string.Empty),
+                            value.LstSubModel[i].state.attributeName,
+                            value.LstSubModel[i].actionName,
+                            value.LstSubModel[i].IsButton() ? string.Empty : "value");
+                    }
                 }
             }
 
@@ -382,11 +401,22 @@ namespace Qarth
             foreach (var info in infos)
             {
                 if (string.IsNullOrEmpty(info.mainAttrInfo.name)) continue;
-                type.InvokeMember(info.mainAttrInfo.name,
+                type.InvokeMember("m_" + info.mainAttrInfo.name,
                                 BindingFlags.SetField |
                                 BindingFlags.Instance |
                                 BindingFlags.NonPublic,
                                 null, target, new object[] { root.Find(info.path).GetComponent(info.mainAttrInfo.type) }, null, null, null);
+
+                foreach (var subInfo in info.subField)
+                {
+                    if (string.IsNullOrEmpty(subInfo.name)) continue;
+                    type.InvokeMember("m_" + subInfo.name,
+                                    BindingFlags.SetField |
+                                    BindingFlags.Instance |
+                                    BindingFlags.NonPublic,
+                                    null, target, new object[] { root.Find(info.path).GetComponent(subInfo.type) }, null, null, null);
+
+                }
             }
 
         }

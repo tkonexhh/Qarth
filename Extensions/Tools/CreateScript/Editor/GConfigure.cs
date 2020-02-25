@@ -59,15 +59,15 @@ namespace Qarth
         public static string createPrefabSuccessTitle = "预制体创建成功";
 
 
-        public static string variableFormat = "\t\t[SerializeField] private {0} {1};\n";
+        public static string variableFormat = "\t\t[SerializeField] private {0} m_{1};\n";
         public static string findFormat = "\t\t\tm_{0} = transform.Find(\"{1}\").GetComponent<{2}>();\n";
         public static string attributeVariableFormat = "\t\tprivate {0,-45} m_{1};\n";
         //public static string attributeFormat = "\t\tpublic {0} {1} {{ get {{ return m_{1}; }} }}\n";
-        public static string newAttributeFormat = "\t\tq{0,-49} = new Q{1}({0});\n";
+        //public static string newAttributeFormat = "\t\tq{0,-49} = new Q{1}({0});\n";
         public static string attributeFormat = "\t\tpublic {0} {1} {{ get {{ return m_{1}; }} }}\n";
         public static string registerFormat = "\t\t\tm_{0}.{1}.AddListener({2});\n";
         public static string controllerEventFormat = "\t\tpublic Action{0} {1};\n";
-        public static string functionFormat = "\t\tprivate void {0}({1})\n\t\t{{\n\t\t\tif( {2} != null ){2}({3});\n\t\t}}\n";
+        public static string functionFormat = "\t\tprivate void {0}({1})\n\t\t{{\n\t\t\tif( m_{2} != null ){3}({4});\n\t\t}}\n";
 
         public static string assignmentFormat = "\t\tui.{0,-50} = {1};\n";
         public static string declareFormat = "\tpartial void {0}({1});\n";

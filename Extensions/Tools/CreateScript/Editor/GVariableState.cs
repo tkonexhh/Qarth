@@ -18,7 +18,7 @@ namespace Qarth
 
 
         public int index = 0;
-        private int oldIndex;
+        private int oldIndex = -1;
         public bool isOpen = true;
         private string[] comNames;
 
@@ -50,8 +50,8 @@ namespace Qarth
         public void SetIndex(string name, Transform t)
         {
             comNames = GGlobalFun.GetComponentsName(t);
-
             int count = comNames.Length;
+            oldIndex = -1;
             for (int i = 0; i < count; i++)
             {
                 if (name == comNames[i])
@@ -64,7 +64,7 @@ namespace Qarth
 
         public void SetName(string name)
         {
-            attributeName = "m_" + name;
+            attributeName = name;
         }
 
         public void Reset()
