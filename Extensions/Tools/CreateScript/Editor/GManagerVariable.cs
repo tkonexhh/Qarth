@@ -47,7 +47,8 @@ namespace Qarth
                 v.state.isAttribute = fields[i].mainAttrInfo.isAttr;
                 v.state.attributeName = fields[i].mainAttrInfo.name;
                 v.state.isEvent = fields[i].mainAttrInfo.isEvent;
-
+                v.type = fields[i].mainAttrInfo.type;
+                v.state.SetIndex(fields[i].mainAttrInfo.type, obj);
                 v.LstSubModel.Clear();
                 v.state.LstSubState.Clear();
                 for (int j = 0; j < fields[i].subField.Count; j++)
