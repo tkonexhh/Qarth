@@ -148,7 +148,7 @@ namespace Qarth
                 }
             }
 
-            var tmp = string.Format(GConfigure.uiClassCode,
+            var tmp = string.Format(GConfigure.Version == ScriptVersion.Mono ? GConfigure.uiClassCode_Mono : GConfigure.uiClassCode,
                 variable, attributeVariable, controllerEvent, attribute, find, newAttribute, register, function);
             return string.Format(GConfigure.uiCode_BindUI, GGlobalFun.GetString(GConfigure.selectTransform.name), tmp);
         }

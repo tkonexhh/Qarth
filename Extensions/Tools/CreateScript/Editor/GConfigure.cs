@@ -128,12 +128,23 @@ namespace Qarth
             "using UnityEngine;\n" +
             "using UnityEngine.UI;\n" +
             "using System;\n\n" +
+            "using Qarth;\n\n" +
             "namespace " + GConfigureDefine.namespaceStr + "\n{{\n" +
             "\tpublic partial class {0} \n" +
             "\t{{\n{1}\n}}\n}" +
             "}";
 
         public static readonly string uiClassCode =
+            "{0}\n{1}\n{2}\n{3}\n" +
+            "\t\tpartial void OnAwake();\n" +
+            "\t\tprivate void Awake()\n\t\t{{\n" +
+            "{4}\n{5}\n{6}\n" +
+            "\t\t\tbase.Awake();\n\n" +
+            "\t\t\tOnAwake();\n\n" +
+            "\t\t}}\n" +
+            "{7}";
+
+        public static readonly string uiClassCode_Mono =
             "{0}\n{1}\n{2}\n{3}\n" +
             "\t\tpartial void OnAwake();\n" +
             "\t\tprivate void Awake()\n\t\t{{\n" +
