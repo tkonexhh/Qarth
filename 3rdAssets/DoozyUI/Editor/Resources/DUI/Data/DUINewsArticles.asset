@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab333cd16d0574d45aa8ca899f978f8c, type: 3}
+  m_Name: DUINewsArticles
+  m_EditorClassIdentifier: 
+  m_Name: DUINewsArticles
+  m_EditorClassIdentifier: 
+  articles:
+  - title: TouchManager & GestureDetector
+    content: 'DoozyUI 2.9 comes with a new module, the TouchManager, that gets created
+      automatically when needed, or manually on demand. This manager handles the capture
+      of the following gestures: tap, long tap and swipes (on 4 or 8 axis).
+
+
+      In order to capture and react to a gesture there is a new GestureDetector component
+      that can be attached to anything that needs to react to gestures (2D and 3D
+      objects).
+
+
+      This gesture detection implementation is still in its early stages of development
+      as we are working on adding more options to it. Should you have any suggestions
+      for the TouchManager or the GestureDetector, please let us know.'
+  - title: UIDrawer is the first optional module for DoozyUI
+    content: 'After a lot of performance and usability tests, the UIDrawer is the
+      first optional module for DoozyUI.
+
+
+      We made sure it works with or without DoozyUI, thus the component can be used
+      as a standalone asset as well.
+
+
+      The UIDrawer is a flexible implementation of a Side Drawer (also known as a
+      Navigation Drawer). It can be anchored to any side of the screen and you can
+      also use more than one in your UI design (for example, you can have a drawer
+      on the left or one on the right, and so on...)
+
+      TouchManager and GestureDetector also come with the UIDrawer component.
+
+'
+  - title: DoozyUI 2.9.2 - New Features
+    content: "For this version we implemented new features to give you a better control
+      when designing for desktop and console platforms. Thus, along with several fixes,
+      we implemented the following:\r\n\u2022 A Controller Input option, for the UIButton
+      and UIToggle, that allows you to set a ControllerInputMode (None, KeyCode, VirtualButton)
+      that will trigger OnClick. You can set a KeyCode and a KeyCodeAlt (alternate
+      button) or a VirtualButtonName and a VirtualButtonNameAlt if you want to use
+      buttonNames set in yout InputManager.\r\n\u2022 The UIManager has a new option
+      that allows you to set a 'Back' button Input Mode (None, KeyCode, VirtualButton)
+      that will trigger the 'Back' button. You can set a KeyCode and a KeyCodeAlt
+      (alternate button) or a VirtualButtonName and a VirtualButtonNameAlt if you
+      want to use buttonNames set in yout InputManager.\r\n\u2022 UIElement now allows
+      you to disable the 'auto select button after show' functionality\r\n\u2022 UIElement
+      allows you, if a button is selected, to deleselect it when the UIElement is
+      Shown and/or Hidden.\r\n\u2022 UIElement allows you to disable toggling the
+      GraphicRaycaster component. If you don't need it, disable it and it will remain
+      disabled (if the disable option is enabled).\r\n\u2022 ControlPanel - UIElemens
+      - allows you to rename element categories.\r\n\u2022 ControlPanel - UIButtons
+      - allows you to rename button categories.\r\n\nAlso, there are a few bug fixes
+      that you can read more about in the ReleaseNotes, should you want to learn more.\r\n\nThank
+      you for your support!!!\r"
+  - title: Special Announcement
+    content: "We are planning a cool contest and, should you want to participate,
+      keep a close eye on our YouTube Channel (http://www.youtube.com/c/DoozyEntertainment)
+      and follow our Twitter feed (https://twitter.com/doozyplay) because we\u2019ll
+      announce it there.\r\n\nWe are also creating a lot of new video tutorials that
+      you\u2019ll diffidently want to check out if you want to improve your UI design
+      skills.\r\n\nStay tuned for more\u2026 \r;)"

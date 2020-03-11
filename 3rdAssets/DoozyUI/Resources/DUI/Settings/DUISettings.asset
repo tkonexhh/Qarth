@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8d3373c6efa5240b5a867c79f47963, type: 3}
+  m_Name: DUISettings
+  m_EditorClassIdentifier: 
+  InternalSettings_ExecutedUpgrade: 0
+  HierarchyManager_Enabled: 0
+  HierarchyManager_PlaymakerEventDispatcher_ShowIcon: 0
+  HierarchyManager_UITrigger_ShowIcon: 0
+  HierarchyManager_UIManager_ShowIcon: 0
+  HierarchyManager_Soundy_ShowIcon: 0
+  HierarchyManager_UINotificationManager_ShowIcon: 0
+  HierarchyManager_OrientationManager_ShowIcon: 0
+  HierarchyManager_SceneLoader_ShowIcon: 0
+  HierarchyManager_UICanvas_ShowIcon: 1
+  HierarchyManager_UICanvas_ShowCanvasName: 1
+  HierarchyManager_UICanvas_ShowSortingLayerNameAndOrder: 0
+  HierarchyManager_UINotification_ShowIcon: 0
+  HierarchyManager_UIElement_ShowIcon: 1
+  HierarchyManager_UIElement_ShowElementCategory: 1
+  HierarchyManager_UIElement_ShowElementName: 1
+  HierarchyManager_UIElement_ShowSortingLayerNameAndOrder: 0
+  HierarchyManager_UIButton_ShowIcon: 1
+  HierarchyManager_UIButton_ShowButtonCategory: 1
+  HierarchyManager_UIButton_ShowButtonName: 1
+  HierarchyManager_UIEffect_ShowIcon: 1
+  HierarchyManager_UIEffect_ShowSortingLayerNameAndOrder: 0
+  UIElement_Inspector_ShowButtonRenameGameObject: 1
+  UIElement_Inspector_RenameGameObjectPrefix: 'UIE - '
+  UIElement_Inspector_RenameGameObjectSuffix: 
+  UIElement_LANDSCAPE: 1
+  UIElement_PORTRAIT: 1
+  UIElement_startHidden: 0
+  UIElement_animateAtStart: 0
+  UIElement_disableWhenHidden: 0
+  UIElement_useCustomStartAnchoredPosition: 0
+  UIElement_customStartAnchoredPosition: {x: 0, y: 0, z: 0}
+  UIElement_executeLayoutFix: 0
+  UIElement_inAnimationsPresetCategoryName: Uncategorized
+  UIElement_inAnimationsPresetName: DefaultPreset
+  UIElement_loadInAnimationsPresetAtRuntime: 0
+  UIElement_outAnimationsPresetCategoryName: Uncategorized
+  UIElement_outAnimationsPresetName: DefaultPreset
+  UIElement_loadOutAnimationsPresetAtRuntime: 0
+  UIElement_Inspector_HideLoopAnimations: 0
+  UIElement_loopAnimationsPresetCategoryName: Uncategorized
+  UIElement_loopAnimationsPresetName: DefaultPreset
+  UIElement_loadLoopAnimationsPresetAtRuntime: 0
+  UIButton_Inspector_ShowButtonRenameGameObject: 1
+  UIButton_Inspector_RenameGameObjectPrefix: 'UIB - '
+  UIButton_Inspector_RenameGameObjectSuffix: 
+  UIButton_allowMultipleClicks: 1
+  UIButton_disableButtonInterval: 0.4
+  UIButton_deselectButtonOnClick: 1
+  UIButton_Inspector_HideOnPointerEnter: 0
+  UIButton_useOnPointerEnter: 0
+  UIButton_onPointerEnterDisableInterval: 0.4
+  UIButton_onPointerEnterSound: ~No Sound~
+  UIButton_customOnPointerEnterSound: 0
+  UIButton_onPointerEnterAnimationType: 0
+  UIButton_onPointerEnterPunchPresetCategory: Uncategorized
+  UIButton_onPointerEnterPunchPresetName: DefaultPreset
+  UIButton_loadOnPointerEnterPunchPresetAtRuntime: 0
+  UIButton_onPointerEnterStatePresetCategory: Uncategorized
+  UIButton_onPointerEnterStatePresetName: DefaultPreset
+  UIButton_loadOnPointerEnterStatePresetAtRuntime: 0
+  UIButton_Inspector_HideOnPointerExit: 0
+  UIButton_useOnPointerExit: 0
+  UIButton_onPointerExitDisableInterval: 0.4
+  UIButton_onPointerExitSound: ~No Sound~
+  UIButton_customOnPointerExitSound: 0
+  UIButton_onPointerExitAnimationType: 0
+  UIButton_onPointerExitPunchPresetCategory: Uncategorized
+  UIButton_onPointerExitPunchPresetName: DefaultPreset
+  UIButton_loadOnPointerExitPunchPresetAtRuntime: 0
+  UIButton_onPointerExitStatePresetCategory: Uncategorized
+  UIButton_onPointerExitStatePresetName: DefaultPreset
+  UIButton_loadOnPointerExitStatePresetAtRuntime: 0
+  UIButton_Inspector_HideOnPointerDown: 0
+  UIButton_useOnPointerDown: 0
+  UIButton_onPointerDownSound: ~No Sound~
+  UIButton_customOnPointerDownSound: 0
+  UIButton_onPointerDownAnimationType: 0
+  UIButton_onPointerDownPunchPresetCategory: Uncategorized
+  UIButton_onPointerDownPunchPresetName: DefaultPreset
+  UIButton_loadOnPointerDownPunchPresetAtRuntime: 0
+  UIButton_onPointerDownStatePresetCategory: Uncategorized
+  UIButton_onPointerDownStatePresetName: DefaultPreset
+  UIButton_loadOnPointerDownStatePresetAtRuntime: 0
+  UIButton_Inspector_HideOnPointerUp: 0
+  UIButton_useOnPointerUp: 0
+  UIButton_onPointerUpSound: ~No Sound~
+  UIButton_customOnPointerUpSound: 0
+  UIButton_onPointerUpAnimationType: 0
+  UIButton_onPointerUpPunchPresetCategory: Uncategorized
+  UIButton_onPointerUpPunchPresetName: DefaultPreset
+  UIButton_loadOnPointerUpPunchPresetAtRuntime: 0
+  UIButton_onPointerUpStatePresetCategory: Uncategorized
+  UIButton_onPointerUpStatePresetName: DefaultPreset
+  UIButton_loadOnPointerUpStatePresetAtRuntime: 0
+  UIButton_Inspector_HideOnClick: 0
+  UIButton_useOnClickAnimations: 1
+  UIButton_waitForOnClickAnimation: 1
+  UIButton_singleClickMode: 0
+  UIButton_onClickSound: ~No Sound~
+  UIButton_customOnClickSound: 0
+  UIButton_onClickAnimationType: 0
+  UIButton_onClickPunchPresetCategory: Uncategorized
+  UIButton_onClickPunchPresetName: DefaultPreset
+  UIButton_loadOnClickPunchPresetAtRuntime: 0
+  UIButton_onClickStatePresetCategory: Uncategorized
+  UIButton_onClickStatePresetName: DefaultPreset
+  UIButton_loadOnClickStatePresetAtRuntime: 0
+  UIButton_Inspector_HideOnDoubleClick: 0
+  UIButton_useOnDoubleClick: 0
+  UIButton_waitForOnDoubleClickAnimation: 1
+  UIButton_doubleClickRegisterInterval: 0.2
+  UIButton_onDoubleClickSound: ~No Sound~
+  UIButton_customOnDoubleClickSound: 0
+  UIButton_onDoubleClickAnimationType: 0
+  UIButton_onDoubleClickPunchPresetCategory: Uncategorized
+  UIButton_onDoubleClickPunchPresetName: DefaultPreset
+  UIButton_loadOnDoubleClickPunchPresetAtRuntime: 0
+  UIButton_onDoubleClickStatePresetCategory: Uncategorized
+  UIButton_onDoubleClickStatePresetName: DefaultPreset
+  UIButton_loadOnDoubleClickStatePresetAtRuntime: 0
+  UIButton_Inspector_HideOnLongClick: 0
+  UIButton_useOnLongClick: 0
+  UIButton_waitForOnLongClickAnimation: 1
+  UIButton_longClickRegisterInterval: 0.5
+  UIButton_onLongClickSound: ~No Sound~
+  UIButton_customOnLongClickSound: 0
+  UIButton_onLongClickAnimationType: 0
+  UIButton_onLongClickPunchPresetCategory: Uncategorized
+  UIButton_onLongClickPunchPresetName: DefaultPreset
+  UIButton_loadOnLongClickPunchPresetAtRuntime: 0
+  UIButton_onLongClickStatePresetCategory: Uncategorized
+  UIButton_onLongClickStatePresetName: DefaultPreset
+  UIButton_loadOnLongClickStatePresetAtRuntime: 0
+  UIButton_Inspector_HideNormalLoop: 0
+  UIButton_normalLoopPresetCategory: Uncategorized
+  UIButton_normalLoopPresetName: DefaultPreset
+  UIButton_loadNormalLoopPresetAtRuntime: 0
+  UIButton_Inspector_HideSelectedLoop: 0
+  UIButton_selectedLoopPresetCategory: Uncategorized
+  UIButton_selectedLoopPresetName: DefaultPreset
+  UIButton_loadSelectedLoopPresetAtRuntime: 0
+  UIButton_addToNavigationHistory: 0
+  UIToggle_Inspector_ShowButtonRenameGameObject: 1
+  UIToggle_Inspector_RenameGameObjectPrefix: 'UIT - '
+  UIToggle_Inspector_RenameGameObjectSuffix: 
+  UIToggle_allowMultipleClicks: 1
+  UIToggle_disableButtonInterval: 0.4
+  UIToggle_deselectButtonOnClick: 1
+  UIToggle_Inspector_HideOnPointerEnter: 0
+  UIToggle_useOnPointerEnter: 0
+  UIToggle_onPointerEnterDisableInterval: 0.4
+  UIToggle_onPointerEnterSoundToggleOn: ~No Sound~
+  UIToggle_onPointerEnterSoundToggleOff: ~No Sound~
+  UIToggle_customOnPointerEnterSoundToggleOn: 0
+  UIToggle_customOnPointerEnterSoundToggleOff: 0
+  UIToggle_onPointerEnterPunchPresetCategory: Uncategorized
+  UIToggle_onPointerEnterPunchPresetName: DefaultPreset
+  UIToggle_loadOnPointerEnterPunchPresetAtRuntime: 0
+  UIToggle_Inspector_HideOnPointerExit: 0
+  UIToggle_useOnPointerExit: 0
+  UIToggle_onPointerExitDisableInterval: 0.4
+  UIToggle_onPointerExitSoundToggleOn: ~No Sound~
+  UIToggle_onPointerExitSoundToggleOff: ~No Sound~
+  UIToggle_customOnPointerExitSoundToggleOn: 0
+  UIToggle_customOnPointerExitSoundToggleOff: 0
+  UIToggle_onPointerExitPunchPresetCategory: Uncategorized
+  UIToggle_onPointerExitPunchPresetName: DefaultPreset
+  UIToggle_loadOnPointerExitPunchPresetAtRuntime: 0
+  UIToggle_Inspector_HideOnClick: 0
+  UIToggle_useOnClickAnimations: 1
+  UIToggle_waitForOnClickAnimation: 1
+  UIToggle_onClickSoundToggleOn: ~No Sound~
+  UIToggle_onClickSoundToggleOff: ~No Sound~
+  UIToggle_customOnClickSoundToggleOn: 0
+  UIToggle_customOnClickSoundToggleOff: 0
+  UIToggle_onClickPunchPresetCategory: Uncategorized
+  UIToggle_onClickPunchPresetName: DefaultPreset
+  UIToggle_loadOnClickPunchPresetAtRuntime: 0
+  UIEffect_Inspector_ShowButtonRenameGameObject: 0
+  UIEffect_Inspector_RenameGameObjectPrefix: 'UIEffect for '
+  UIEffect_Inspector_RenameGameObjectSuffix: 
+  UIEffect_playOnAwake: 0
+  UIEffect_stopInstantly: 0
+  UIEffect_startDelay: 0
+  UIEffect_useCustomSortingLayerName: 0
+  UIEffect_customSortingLayerName: Default
+  UIEffect_useCustomOrderInLayer: 0
+  UIEffect_customOrderInLayer: 0
+  UIEffect_effectPosition: 0
+  UIEffect_sortingOrderStep: 1

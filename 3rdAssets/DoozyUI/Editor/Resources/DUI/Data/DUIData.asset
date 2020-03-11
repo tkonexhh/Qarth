@@ -1,0 +1,1195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5e1f874a687f743a85a498c8cf9bfd, type: 3}
+  m_Name: DUIData
+  m_EditorClassIdentifier: 
+  DatabaseUIElements:
+    categories:
+    - categoryName: Uncategorized
+      itemNames:
+      - ~Element Name~
+      - AdStaticShowPanel
+      - ClaimPanel
+      - ClassicModeContinuePanel
+      - ClassicModeGetPropPanel
+      - ClassicModeLevelCompletePanel
+      - ClassicModeLevelFailedPanel
+      - ClassicModePausePanel
+      - CubeModeBombPanel
+      - CubeModeContinuePanel
+      - CubeModeGameFinishPanel
+      - CubeModeGameOverPanel
+      - CubeModePausePanel
+      - CubeModeRevivePanel
+      - CubeModeToolPanel
+      - GetBonusPanel
+      - GetPropertyPanel
+      - GetRedPackPanel
+      - OfflinePanel
+      - OfflineRewardPanel
+      - RatePanel
+      - SettingPanel
+      - ShopPanel
+      - TaskPanel
+      isExpanded:
+        m_Target: 1
+        speed: 2
+        m_Value: 1
+    categoryNames:
+    - ~Custom Name~
+    - Uncategorized
+  DatabaseUIButtons:
+    categories:
+    - categoryName: Uncategorized
+      itemNames:
+      - ~Button Name~
+      isExpanded:
+        m_Target: 1
+        speed: 2
+        m_Value: 1
+    categoryNames:
+    - ~Custom Name~
+    - Uncategorized
+  DatabaseUICanvases:
+  - MasterCanvas
+  DatabaseUISounds:
+    sounds:
+    - {fileID: 11400000, guid: 59de0091c9523d146a71bf3e2f187753, type: 2}
+    - {fileID: 11400000, guid: 355ab38d98ed7469cb9fd4635db1fb31, type: 2}
+    - {fileID: 11400000, guid: e5993b80465183c4f991f8348ddcce55, type: 2}
+    soundNames:
+    - ~No Sound~
+    - Click1
+    - Pop
+  DatabaseInAnimations:
+    categories:
+    - categoryName: Basic
+      presets:
+      - {fileID: 11400000, guid: 0c99589ba7a87e54c99211490ca39b64, type: 2}
+      - {fileID: 11400000, guid: a3bfe99068df7dd418136c77aef61be9, type: 2}
+      - {fileID: 11400000, guid: e6147f010cc7cdb4b81746faa60a4ab7, type: 2}
+      - {fileID: 11400000, guid: c4cdd45407476e142a3bc83ee51d0ae2, type: 2}
+      - {fileID: 11400000, guid: 88db9f0bfc157624181bf7527f6d5b5c, type: 2}
+      - {fileID: 11400000, guid: b3e9be80e10ced24986e22687e30dc30, type: 2}
+      - {fileID: 11400000, guid: 5c54100f3fe7535429f60063ad34d9fa, type: 2}
+      - {fileID: 11400000, guid: ff4865f116e9a9b41a055b29b1c8d19b, type: 2}
+      - {fileID: 11400000, guid: b68296cb3dd920c43bfe739d46f54270, type: 2}
+      - {fileID: 11400000, guid: ada08aecec56cad43b6331ab68686200, type: 2}
+      - {fileID: 11400000, guid: 079a5e64b379dbe47b6c54054e310e36, type: 2}
+      - {fileID: 11400000, guid: 18d003759bc171248871ab0ff4edfa16, type: 2}
+      - {fileID: 11400000, guid: c342fdf763afdfc40ba9b77681fdd102, type: 2}
+      - {fileID: 11400000, guid: fec90d215b723674794c3677dde6fed1, type: 2}
+      - {fileID: 11400000, guid: bc8f8ad647ee3c84f8101bbefe6ac4a5, type: 2}
+      - {fileID: 11400000, guid: e3171a6614f5d7f41ab2d4ed3ed7d02c, type: 2}
+      - {fileID: 11400000, guid: 21cf8265e672ac9419395223c7471dc8, type: 2}
+      - {fileID: 11400000, guid: bc43a670e099b3e46b67cd452cf77a27, type: 2}
+      - {fileID: 11400000, guid: e6ba62920cc3145419b4b917387dd9ef, type: 2}
+      - {fileID: 11400000, guid: 8acfe1764ad25d74d83579de8637ebfd, type: 2}
+      presetNames:
+      - BlastOff
+      - Cascade
+      - DoubleIn
+      - ElegantFallOff
+      - FadeDown
+      - FadeLeft
+      - FadeRight
+      - FadeUp
+      - FallRotateLeft
+      - FallRotateRight
+      - FastFadeIn
+      - JumpIn
+      - Punch
+      - SailLeft
+      - SailRight
+      - SlowFadeIn
+      - SubsideHorizontal
+      - SubsideLeft
+      - SubsideRight
+      - SubsideVertical
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Drop
+      presets:
+      - {fileID: 11400000, guid: fed27f3eda97fbd4db77ed7461aa5c32, type: 2}
+      - {fileID: 11400000, guid: da799484eaf65024a9e63ef038214ac1, type: 2}
+      - {fileID: 11400000, guid: 91fa2895b9f921d479e28389647803fb, type: 2}
+      - {fileID: 11400000, guid: df8607620a994424d9cd4639bbba8741, type: 2}
+      - {fileID: 11400000, guid: 09f458b9339ba8347abbe3cfb8e2d832, type: 2}
+      - {fileID: 11400000, guid: f531d938a36526a4eadaa86beac99baa, type: 2}
+      - {fileID: 11400000, guid: 04a417010e7d0be4d96ddb15a9bf20ba, type: 2}
+      - {fileID: 11400000, guid: 83ea58f3ff0f53c4a89b5c919350c8ea, type: 2}
+      - {fileID: 11400000, guid: 9c6fa8eef8755b34a865a3e65c930b11, type: 2}
+      - {fileID: 11400000, guid: d7d4ca6567cf2d347a97c34e0f936fc9, type: 2}
+      - {fileID: 11400000, guid: bfd7ba6d3aebbd640b0c1de237c157c8, type: 2}
+      - {fileID: 11400000, guid: 6c07b85cdb71c9f409451df1f2070e15, type: 2}
+      presetNames:
+      - Blitz
+      - Bonk
+      - Fade
+      - Flick
+      - Flutter
+      - Jolt
+      - OnLeftCorner
+      - OnRightCorner
+      - Rebound
+      - Shake
+      - Sling
+      - Walk
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Fade
+      presets:
+      - {fileID: 11400000, guid: 0f0b5e9644c3c4e4397a2a31b2ec8679, type: 2}
+      - {fileID: 11400000, guid: 6df25452e95fa3b448afa10611ada376, type: 2}
+      - {fileID: 11400000, guid: e0d6987a5a0b9414fa2c4397f6b66873, type: 2}
+      - {fileID: 11400000, guid: 6613009b71a8df047a26588c24c3411c, type: 2}
+      - {fileID: 11400000, guid: 20c7473b330a71942b45dea8cebcdf96, type: 2}
+      - {fileID: 11400000, guid: 6cf43fd0c41a0a74db2e62349ca01014, type: 2}
+      - {fileID: 11400000, guid: fa56c3f53db62544bb985fb6eff9fbc5, type: 2}
+      - {fileID: 11400000, guid: bcf6336079e1cc148ad3560834ca4abe, type: 2}
+      - {fileID: 11400000, guid: 6bbe25e1ff7bf8a44ab421d0acf37d3b, type: 2}
+      - {fileID: 11400000, guid: 53adf7129d5217f47ad289ff4f1d982b, type: 2}
+      - {fileID: 11400000, guid: 087f8c3ef37bd9b4b96c3eca2c1a2239, type: 2}
+      - {fileID: 11400000, guid: 9f19087af62275849931d3d6400fc505, type: 2}
+      - {fileID: 11400000, guid: 780689e007ba30247af01e2bb3f6516c, type: 2}
+      presetNames:
+      - FoldHorizontal
+      - FoldVertical
+      - InFast
+      - InNormal
+      - InSlow
+      - Pop
+      - PopLeft
+      - PopRight
+      - ShrinkIn
+      - SoftGrow
+      - SoftShrink
+      - TwistLeft
+      - TwistRight
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Organic
+      presets:
+      - {fileID: 11400000, guid: 222660a32f43ddf4d94683ee1849065a, type: 2}
+      - {fileID: 11400000, guid: 509ee26e0d9d1c4439ea04812892b87b, type: 2}
+      - {fileID: 11400000, guid: 14d7b3d3f875ad04baceef27650f8a43, type: 2}
+      - {fileID: 11400000, guid: bed0ee2d9c3d6564d829df392ca35fbf, type: 2}
+      - {fileID: 11400000, guid: 2c80ac9ee9c026d439a6646a6a318dff, type: 2}
+      - {fileID: 11400000, guid: db223f09bc318864f9184e7884eda682, type: 2}
+      - {fileID: 11400000, guid: ebb0ff9ead40e544aa53556a721dc73b, type: 2}
+      - {fileID: 11400000, guid: 6bd9d54acc99edb41a973312e24fcc97, type: 2}
+      - {fileID: 11400000, guid: c2177a30a16f1cc4fbb0230c53c3f6e5, type: 2}
+      - {fileID: 11400000, guid: 2b6e1b06a3701d24ebc4093c023ecbcf, type: 2}
+      - {fileID: 11400000, guid: f7857aa35cacd8345b5cf0d33960cfc1, type: 2}
+      - {fileID: 11400000, guid: 6d2b413ea9d54b247a80a39351dc4854, type: 2}
+      - {fileID: 11400000, guid: 1c2ceb6379070c146a56113900826765, type: 2}
+      presetNames:
+      - DropAndBounce
+      - DropAndPop
+      - RiseFromBottom
+      - SlideDown
+      - SlideFromBottomFast
+      - SlideFromLeftFast
+      - SlideFromRightFast
+      - SlideFromTopFast
+      - SmoothFromBottom
+      - SmoothFromLeft
+      - SmoothFromRight
+      - SmoothFromTop
+      - Wiggle
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Scale
+      presets:
+      - {fileID: 11400000, guid: 2130b9d4f7a7feb4ea671828013f75ce, type: 2}
+      - {fileID: 11400000, guid: c4110e6bffe27ef4290b34434b189a6f, type: 2}
+      - {fileID: 11400000, guid: a4b540c668c41e246935ae72a1e166b7, type: 2}
+      - {fileID: 11400000, guid: a471f63b1d19a8f439ba9d8795c2a159, type: 2}
+      - {fileID: 11400000, guid: e9b1945d954326c4da4829b8e9a63c4a, type: 2}
+      - {fileID: 11400000, guid: 0509f4e0707d3a54da1835af13cc9ff6, type: 2}
+      - {fileID: 11400000, guid: 59672a1d1c80999428095764767e9d90, type: 2}
+      - {fileID: 11400000, guid: 3d484ccaa1e8ca44eab2c35d7dd57b38, type: 2}
+      - {fileID: 11400000, guid: a46e993d401186646abdb2d5f9edfd9f, type: 2}
+      - {fileID: 11400000, guid: 4fc95b4583e576f4eafeb58ddefb32c9, type: 2}
+      - {fileID: 11400000, guid: 861b695c52686fe48adad673e72c2209, type: 2}
+      - {fileID: 11400000, guid: e973bf350db0e6443a3147aa3cc392ba, type: 2}
+      - {fileID: 11400000, guid: 4b9e97d5341ee2a45a0a7ebf187b01d6, type: 2}
+      - {fileID: 11400000, guid: 4b7ecff731d33ae4c908db0dd0938b47, type: 2}
+      - {fileID: 11400000, guid: c7f4728c79faf2e46afb09bcb25b4866, type: 2}
+      - {fileID: 11400000, guid: bde99b49e97ff1742a24c438452e7692, type: 2}
+      - {fileID: 11400000, guid: bc18dbd5fd0f1d54fa661e0e4d856268, type: 2}
+      - {fileID: 11400000, guid: 3bbd1dbcbb1b0024f901ceb0c3c94abd, type: 2}
+      - {fileID: 11400000, guid: 1a33a9eb6ce439c46a49c24b36e46e8c, type: 2}
+      - {fileID: 11400000, guid: 2ad590640581fb640af852f9f7348cc9, type: 2}
+      - {fileID: 11400000, guid: bb70adaab33b2404d812f38698fac0ab, type: 2}
+      presetNames:
+      - DropAndGrow
+      - DropAndHit
+      - DwindleHorizontal
+      - DwindleVertical
+      - ElasticFast
+      - ElasticSlow
+      - FadeFast
+      - FadeSlow
+      - PopRotateLeft
+      - PopRotateRight
+      - RiseAndGrow
+      - RotateLeftFast
+      - RotateLeftSlow
+      - RotateRightFast
+      - RotateRightSlow
+      - SimpleFast
+      - SimpleSlow
+      - SlenderDown
+      - SlenderLeft
+      - SlenderRight
+      - SlenderUp
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Slide
+      presets:
+      - {fileID: 11400000, guid: a0fdb12db8f7b334b8a8ca73ea249d4d, type: 2}
+      - {fileID: 11400000, guid: d0cea86846862f5459b89ed36717ecca, type: 2}
+      - {fileID: 11400000, guid: 53289c3416352384b9ce1c206e44ece6, type: 2}
+      - {fileID: 11400000, guid: c394582744d25364587c8734d1431929, type: 2}
+      - {fileID: 11400000, guid: 5dc31fc64b67a634888722dbc1aaffb4, type: 2}
+      - {fileID: 11400000, guid: 7500dd2c3f53ea74f9c3fea271792b00, type: 2}
+      - {fileID: 11400000, guid: 2a1dea9e8e900b4468deffc03162a954, type: 2}
+      - {fileID: 11400000, guid: c8b60271697672c4caefea63aef6fbc3, type: 2}
+      - {fileID: 11400000, guid: aa7e405febdd1374890457794582aa83, type: 2}
+      - {fileID: 11400000, guid: 0beb2d809e5060348aa99c61c5568399, type: 2}
+      - {fileID: 11400000, guid: 2757dbdc1be5b6e438f0e1fc393f3c1d, type: 2}
+      - {fileID: 11400000, guid: 4c8944547b8cb594cb315fe029b0e5d6, type: 2}
+      - {fileID: 11400000, guid: 8876aee0e711ae84c9c93602fecf5eda, type: 2}
+      - {fileID: 11400000, guid: 1fc20cb5bbcbcbe47956cc809c2e92cd, type: 2}
+      - {fileID: 11400000, guid: 56c6ac5fd381cf34ba984ce947d85244, type: 2}
+      - {fileID: 11400000, guid: 2d67d0e8ad6892e48bdc3ab950dc68d9, type: 2}
+      - {fileID: 11400000, guid: d854d51f68bd71f489b6c9a0cc4bf7fd, type: 2}
+      - {fileID: 11400000, guid: 134b7ad9c6473f748999850de475675f, type: 2}
+      presetNames:
+      - BounceFromLeft
+      - BounceFromRight
+      - CardDown
+      - CardLeft
+      - CardRight
+      - CardUp
+      - ElegantLeft
+      - ElegentRight
+      - FromLeftAndBounce
+      - FromRightAndBounce
+      - RotateDown
+      - RotateLeft
+      - RotateRight
+      - RotateUp
+      - RushFromBottom
+      - RushFromLeft
+      - RushFromRight
+      - RushFromTop
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Uncategorized
+      presets:
+      - {fileID: 11400000, guid: c6f98780d88d8b44bbdb1849c3916c1e, type: 2}
+      - {fileID: 11400000, guid: fa17e5265ca264c5ab103cf67d12ec6a, type: 2}
+      presetNames:
+      - DefaultPreset
+      - msf_in
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    categoryNames:
+    - Basic
+    - Drop
+    - Fade
+    - Organic
+    - Scale
+    - Slide
+    - Uncategorized
+  DatabaseOutAnimations:
+    categories:
+    - categoryName: Basic
+      presets:
+      - {fileID: 11400000, guid: 986897f128ea0fb4abacd3259ca87f61, type: 2}
+      - {fileID: 11400000, guid: 1167a3627d2554e4097d27049f18fdf3, type: 2}
+      - {fileID: 11400000, guid: 72a6cd1d75c465b4da628a2f9c755c7e, type: 2}
+      - {fileID: 11400000, guid: e53ff65a0d09e2c4980ccff7d204e5e3, type: 2}
+      - {fileID: 11400000, guid: 56df178a0d6563b47b664b384487b395, type: 2}
+      - {fileID: 11400000, guid: 7eecd2f4899ab0f4e81cb653e98bc23a, type: 2}
+      - {fileID: 11400000, guid: b0c3ced6adb948f4aa0aa3b5b97e2366, type: 2}
+      - {fileID: 11400000, guid: ed7a436aa14053744866fcd465562217, type: 2}
+      - {fileID: 11400000, guid: a2eb81fe9dc504d4b9a0d0d56e026165, type: 2}
+      - {fileID: 11400000, guid: f0537864f87dc444c9ad9aa337ac5523, type: 2}
+      - {fileID: 11400000, guid: d896baa1e402fc04cadc53b838908377, type: 2}
+      - {fileID: 11400000, guid: 67cfd20a52ed8d240899ed8c350bca5f, type: 2}
+      - {fileID: 11400000, guid: 991d9f2d6c86c0b4b84e0615a0877811, type: 2}
+      - {fileID: 11400000, guid: 87c87135c42232240903a1871032dc3f, type: 2}
+      - {fileID: 11400000, guid: 2a7e392c66c71554fa5a2a0e72302e46, type: 2}
+      - {fileID: 11400000, guid: 52be4377015f45940862c8df5f816e24, type: 2}
+      - {fileID: 11400000, guid: 0705ca36638c1a747a636324e6136307, type: 2}
+      - {fileID: 11400000, guid: 15a961296c85fb345a154272428da573, type: 2}
+      - {fileID: 11400000, guid: e2e2cf38a4c5b3f4aa2253c65fc9d27f, type: 2}
+      - {fileID: 11400000, guid: 5c9a5fb1f44b5cd4ababf25d9145a57d, type: 2}
+      presetNames:
+      - BlastOff
+      - Cascade
+      - DoubleOut
+      - ElegantFallOff
+      - FadeDown
+      - FadeLeft
+      - FadeRight
+      - FadeUp
+      - FallRotateLeft
+      - FallRotateRight
+      - FastFadeOut
+      - JumpOut
+      - Punch
+      - SailLeft
+      - SailRight
+      - SlowFadeOut
+      - SubsideHorizontal
+      - SubsideLeft
+      - SubsideRight
+      - SubsideVertical
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Drop
+      presets:
+      - {fileID: 11400000, guid: eeb0006792619e340a3efce60b822cb1, type: 2}
+      - {fileID: 11400000, guid: 2a824e4d00fb02c4981b9857755edc69, type: 2}
+      - {fileID: 11400000, guid: 1ef52caed3cdd6a47b4418827a177e08, type: 2}
+      - {fileID: 11400000, guid: fae97b988f33fc64986b200e78603796, type: 2}
+      - {fileID: 11400000, guid: 1e1a0b65c8c07fb489b10d59e35f5d59, type: 2}
+      - {fileID: 11400000, guid: 4788dc67d0f92b04e9063b0422b1f701, type: 2}
+      - {fileID: 11400000, guid: 31678fc3d9192ff4ab1ae696863ccd69, type: 2}
+      - {fileID: 11400000, guid: d79068c574bece64588c86a7a13f165c, type: 2}
+      - {fileID: 11400000, guid: e683a2fe1a1fcb549b9a43d35e1af7b1, type: 2}
+      - {fileID: 11400000, guid: 153efcd21e3234242bf55e12bced5deb, type: 2}
+      - {fileID: 11400000, guid: 96ecad8498d9c064a985fd165ef2af80, type: 2}
+      - {fileID: 11400000, guid: 44c968c2e1c226c42b263a2b7dc66197, type: 2}
+      presetNames:
+      - Blitz
+      - Bonk
+      - Fade
+      - Flick
+      - Flutter
+      - Jolt
+      - OnLeftCorner
+      - OnRightCorner
+      - Rebound
+      - Shake
+      - Sling
+      - Walk
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Fade
+      presets:
+      - {fileID: 11400000, guid: 70e92dc953a29b54db64fef3628692e7, type: 2}
+      - {fileID: 11400000, guid: 9d78607c4993e4c4581edf1e39b11b28, type: 2}
+      - {fileID: 11400000, guid: 92c7c939d3bf5bc4e8d67c233edffa56, type: 2}
+      - {fileID: 11400000, guid: 63ffe3033c8f354488aa2a8b46f5c48d, type: 2}
+      - {fileID: 11400000, guid: ee589461443ae9a4eac38109074e374b, type: 2}
+      - {fileID: 11400000, guid: 3f429265f5459f540b7958576b922dc0, type: 2}
+      - {fileID: 11400000, guid: a451137a8b3d4564d87d8ebd2c86bc07, type: 2}
+      - {fileID: 11400000, guid: 83b72285054d5164389bea1b5660e4f2, type: 2}
+      - {fileID: 11400000, guid: 775708547ad09cd43a3612b6503f0899, type: 2}
+      - {fileID: 11400000, guid: 23d7beeaa51b8e849b7f81d14b68672a, type: 2}
+      - {fileID: 11400000, guid: 72e163c58574e6a45bbd18c0d2ad919c, type: 2}
+      - {fileID: 11400000, guid: 33756ea75ea206e44a13aba27b7dd3d5, type: 2}
+      - {fileID: 11400000, guid: 87785f01947d85d4aa346d723ed291d0, type: 2}
+      presetNames:
+      - FoldHorizontal
+      - FoldVertical
+      - GrowOut
+      - OutFast
+      - OutNormal
+      - OutSlow
+      - Pop
+      - PopLeft
+      - PopRight
+      - SoftGrow
+      - SoftShrink
+      - TwistLeft
+      - TwistRight
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Organic
+      presets:
+      - {fileID: 11400000, guid: 822ddf37c9049be418208263fe6de905, type: 2}
+      - {fileID: 11400000, guid: 863767522402af74996fcce394aff509, type: 2}
+      - {fileID: 11400000, guid: a00ac68477484ac4faab55589dc7cca4, type: 2}
+      - {fileID: 11400000, guid: e75cb6a14d8fc924a9dae5f3c4bbfecf, type: 2}
+      - {fileID: 11400000, guid: 3cf1058705e4e3d419893dc5301c63e1, type: 2}
+      - {fileID: 11400000, guid: 8342562370f80524899e332a12c86c72, type: 2}
+      - {fileID: 11400000, guid: 8585e0c9a9ec7c3429da8c2750bf159a, type: 2}
+      - {fileID: 11400000, guid: 8cdf6cc1311d02c46ab6bbb663b50623, type: 2}
+      - {fileID: 11400000, guid: 12a613f76a630a24eb2bb0f981cab08e, type: 2}
+      - {fileID: 11400000, guid: e06e976445fbcb14f890def6f26ea602, type: 2}
+      - {fileID: 11400000, guid: eca1b1a2c5724174695026cb62c17ead, type: 2}
+      - {fileID: 11400000, guid: 1d5e675b2fbeed04787001d593c79b4b, type: 2}
+      - {fileID: 11400000, guid: b92b8e22613ea9042967c8b30aea0b39, type: 2}
+      presetNames:
+      - DescentToBottom
+      - DropAndGrow
+      - JumpDown
+      - PopAndDrop
+      - SlideToBottomFast
+      - SlideToLeftFast
+      - SlideToRightFast
+      - SlideToTopFast
+      - SmoothToBottom
+      - SmoothToLeft
+      - SmoothToRight
+      - SmoothToTop
+      - Wiggle
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Scale
+      presets:
+      - {fileID: 11400000, guid: ca7036c3af30c2c4e92bb73bcd6cdf68, type: 2}
+      - {fileID: 11400000, guid: 468a083c8fe23d747906800554a59646, type: 2}
+      - {fileID: 11400000, guid: fe2f7d51c13305646bb8db531be1edf7, type: 2}
+      - {fileID: 11400000, guid: 44746322be5c45a42b9bc0959fbaa9bc, type: 2}
+      - {fileID: 11400000, guid: 475766f7db5c5824280d2fae82effaa9, type: 2}
+      - {fileID: 11400000, guid: efd4d8d64f3ebbc4ba58311c856fc2fa, type: 2}
+      - {fileID: 11400000, guid: ed990f36b6022b54184ba2ba7abe6a0e, type: 2}
+      - {fileID: 11400000, guid: 06698367b26a3ab47a59807ad9813b7f, type: 2}
+      - {fileID: 11400000, guid: d64230f89fe193e4f95976d28a575f51, type: 2}
+      - {fileID: 11400000, guid: ca66aaf715f20dc45b3109e90cea40bb, type: 2}
+      - {fileID: 11400000, guid: 442851ca7db207540b4d26d63e517bab, type: 2}
+      - {fileID: 11400000, guid: 6320e761ca029cf449d19f4672bcd25b, type: 2}
+      - {fileID: 11400000, guid: 102702dfa0eb3cd4fbe7f4f3ed26a88b, type: 2}
+      - {fileID: 11400000, guid: c6c4b48b43c979841845020ee1bb98a0, type: 2}
+      - {fileID: 11400000, guid: 999ab91c7a87e5743b0c9aba6bddf5ba, type: 2}
+      - {fileID: 11400000, guid: 56e5bc5987fefe64eb4eb9511245c197, type: 2}
+      - {fileID: 11400000, guid: de905d911c0968a4fabafa5d84422812, type: 2}
+      - {fileID: 11400000, guid: 8050516db2fb04c45ac9a97a31a0299d, type: 2}
+      - {fileID: 11400000, guid: 0841c41b37f22e348a25ba5ba4b7fb3b, type: 2}
+      - {fileID: 11400000, guid: 99e4200790bf9144ba9ff7ee2357fe15, type: 2}
+      - {fileID: 11400000, guid: fbd9a7bdcefaafc49852782153464936, type: 2}
+      presetNames:
+      - DropAndHit
+      - DwindleHorizontal
+      - DwindleVertical
+      - ElasticFast
+      - ElasticSlow
+      - FadeFast
+      - FadeSlow
+      - PopRotateLeft
+      - PopRotateRight
+      - RiseAndShrink
+      - RotateLeftFast
+      - RotateLeftSlow
+      - RotateRightFast
+      - RotateRightSlow
+      - ShrinkAndDrop
+      - SimpleFast
+      - SimpleSlow
+      - SlenderDown
+      - SlenderLeft
+      - SlenderRight
+      - SlenderUp
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Slide
+      presets:
+      - {fileID: 11400000, guid: db62ff4a98740f8449e5d288a3c782d9, type: 2}
+      - {fileID: 11400000, guid: 16bf635afd6e79f418ae1e6687a64341, type: 2}
+      - {fileID: 11400000, guid: 2eddc86cbe9c8e54d8e097a0bc9e114b, type: 2}
+      - {fileID: 11400000, guid: 76588566bb6f2aa4c873827839d75c97, type: 2}
+      - {fileID: 11400000, guid: 34d8e5a7972def040a9205328847092b, type: 2}
+      - {fileID: 11400000, guid: 3bffae36291a0894aa30f056c7a41c71, type: 2}
+      - {fileID: 11400000, guid: 31194d70b2a5e284aac7bccb1fd23e66, type: 2}
+      - {fileID: 11400000, guid: 9c8dfbe764f4c0e4ea2a5de44dbc70d6, type: 2}
+      - {fileID: 11400000, guid: 2d82b5b6e9f9bae41bbe319ce6e672d3, type: 2}
+      - {fileID: 11400000, guid: 86e8bc5457c7c7e4ba788cd28beede05, type: 2}
+      - {fileID: 11400000, guid: ccef97f4c210c8146a582e84b0b91f4e, type: 2}
+      - {fileID: 11400000, guid: a88e0d150f2c1c646bdc5b5cb83dea35, type: 2}
+      - {fileID: 11400000, guid: c4d5d7861749f0d4e82da5c6e7af1ea5, type: 2}
+      - {fileID: 11400000, guid: eca3c6d1c5c663140bd67768680e27e9, type: 2}
+      - {fileID: 11400000, guid: 80d9455ed945159419ee198916892aed, type: 2}
+      - {fileID: 11400000, guid: 9029f5032c648364b9c9d6843b4a8112, type: 2}
+      - {fileID: 11400000, guid: 0d48c29ffc8b2404d9badfce96cb1d13, type: 2}
+      presetNames:
+      - BounceToLeft
+      - BounceToRight
+      - CardDown
+      - CardLeft
+      - CardRight
+      - CardUp
+      - ElegantLeft
+      - RotateDown
+      - RotateLeft
+      - RotateRight
+      - RotateUp
+      - RushToBottom
+      - RushToLeft
+      - RushToRight
+      - RushToTop
+      - ToLeftAndBounce
+      - ToRightAndBounce
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Uncategorized
+      presets:
+      - {fileID: 11400000, guid: 80ff3b47fbd629146825c73d16c9280d, type: 2}
+      - {fileID: 11400000, guid: 322cfcd6f09994c1e8560e7e9f2bd82b, type: 2}
+      presetNames:
+      - DefaultPreset
+      - msf_out
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    categoryNames:
+    - Basic
+    - Drop
+    - Fade
+    - Organic
+    - Scale
+    - Slide
+    - Uncategorized
+  DatabaseLoopAnimations:
+    categories:
+    - categoryName: Elastic
+      presets:
+      - {fileID: 11400000, guid: 77bc94a51c1bf7f40ad238a7849fae9e, type: 2}
+      - {fileID: 11400000, guid: 7b03c98941ae187469ed736854d10765, type: 2}
+      - {fileID: 11400000, guid: 5878721c649b2034e9893c082b67945b, type: 2}
+      - {fileID: 11400000, guid: e06c5a655454ed645885812e3dd1f1aa, type: 2}
+      - {fileID: 11400000, guid: c4b60bb41d2abeb45b54aaee37b19cdb, type: 2}
+      - {fileID: 11400000, guid: 525cdf44ef9096744964f7bb2feb0343, type: 2}
+      - {fileID: 11400000, guid: cd635b854fc6e194b873a3c7a15a7918, type: 2}
+      presetNames:
+      - Rotate10
+      - Rotate5
+      - ScaleFast
+      - ScaleNormal
+      - ScaleSlow
+      - SlideHorizontal
+      - SlideVertical
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Fade
+      presets:
+      - {fileID: 11400000, guid: 8e5661bae2ff8694a9b9aceec2793495, type: 2}
+      - {fileID: 11400000, guid: 14c5cdf94b86f404ba34c5abeef4c902, type: 2}
+      - {fileID: 11400000, guid: 2c7262e855374d343ae4c5923ad5f012, type: 2}
+      - {fileID: 11400000, guid: 61e5dbb28b644e0458146ccc9da1ce50, type: 2}
+      - {fileID: 11400000, guid: 2987dbd86cb44c24eac10567af22d6db, type: 2}
+      - {fileID: 11400000, guid: c4ec6d3b63434ce4a83b5c9fad136eca, type: 2}
+      - {fileID: 11400000, guid: bcffebd3b8b63b14ca3c23f18ae4d483, type: 2}
+      - {fileID: 11400000, guid: d0a9e8bbdc093ff40b265f28ea9849a2, type: 2}
+      - {fileID: 11400000, guid: b2393401a7e0ee04fb0580af5a242272, type: 2}
+      - {fileID: 11400000, guid: 469300808900c2b4987e8313649e9fc5, type: 2}
+      - {fileID: 11400000, guid: 51b25264e58c87a43b6be02b33a58783, type: 2}
+      presetNames:
+      - ExtremelySlow
+      - Fast
+      - Normal
+      - Slow
+      - SoftFast
+      - SoftNormal
+      - SoftSlow
+      - SoftVeryFast
+      - SoftVerySlow
+      - VeryFast
+      - VerySlow
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Move
+      presets:
+      - {fileID: 11400000, guid: ac052d1e820c7704ca37da34c46aa0e7, type: 2}
+      - {fileID: 11400000, guid: 64f168f31caa7094f80e3b3a905ce811, type: 2}
+      - {fileID: 11400000, guid: 21a8fd5f42403a34c8f0993ffc62d4b5, type: 2}
+      - {fileID: 11400000, guid: 3fc46573f8d0b5e44b4cb7127b55128b, type: 2}
+      - {fileID: 11400000, guid: 9084c22333353dc4baf6f70519dac563, type: 2}
+      - {fileID: 11400000, guid: 96b28c53a5d2b954c8fc2f4477598c38, type: 2}
+      - {fileID: 11400000, guid: 15a037ad7a820084081cb42b514e04c9, type: 2}
+      - {fileID: 11400000, guid: 1aaa48006492dfd4a8ca8606264e5e04, type: 2}
+      - {fileID: 11400000, guid: ef5f632a89ec3fe4c9930b0f90ae84f1, type: 2}
+      - {fileID: 11400000, guid: 90158a2fb086e0242996443ca4dd7853, type: 2}
+      presetNames:
+      - ScaleSideToSideFast
+      - ScaleSideToSideNormal
+      - ScaleSideToSideSlow
+      - ScaleSideToSideVeryFast
+      - SideToSideFast
+      - SideToSideNormal
+      - SideToSideSlow
+      - UpAndDownFast
+      - UpAndDownNormal
+      - UpAndDownSlow
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Organic
+      presets:
+      - {fileID: 11400000, guid: 90e8811241229684c81f46222388f48f, type: 2}
+      - {fileID: 11400000, guid: 73edc47a4dc361e4082ae87633e5af83, type: 2}
+      - {fileID: 11400000, guid: 461943d49c0701b42bd6e3657572b0ae, type: 2}
+      - {fileID: 11400000, guid: 02771983e645d6c43a0ffcfdc1b1e112, type: 2}
+      - {fileID: 11400000, guid: 702b64d58db41644ba7e5b40b35d9a03, type: 2}
+      - {fileID: 11400000, guid: ae33d8f353aa0164cb3a0f3c4fa5fe95, type: 2}
+      - {fileID: 11400000, guid: b4c18ce7b29faf84cb952211737a58bf, type: 2}
+      - {fileID: 11400000, guid: 99ed5887f27f6ca459b705e980995d08, type: 2}
+      - {fileID: 11400000, guid: fe8d22e5b7a7b944aa08974e37eb9cf0, type: 2}
+      - {fileID: 11400000, guid: 9a4b4b44bad20b24f96fb8c4fd847ac8, type: 2}
+      - {fileID: 11400000, guid: b3a5e7b4f90d71640a5b4cfed80dfe5b, type: 2}
+      - {fileID: 11400000, guid: 80f43a7aeb829d94bac12741c46a365f, type: 2}
+      - {fileID: 11400000, guid: 5eae8b12dee25c64d84bbd802d196716, type: 2}
+      - {fileID: 11400000, guid: 1b50b05e89891e749bb77cad1dffffe1, type: 2}
+      presetNames:
+      - Drop10Fast
+      - Drop10Normal
+      - Drop10Slow
+      - DropStop10Fast
+      - DropStop10Normal
+      - DropStop10Slow
+      - Jump10Fast
+      - Jump10Normal
+      - Jump10Slow
+      - JumpStop10Fast
+      - JumpStop10Normal
+      - JumpStop10Slow
+      - ScaleIn
+      - ScaleOut
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Rotate
+      presets:
+      - {fileID: 11400000, guid: 2f26e8d2ab205e2429faa128f0c408f8, type: 2}
+      - {fileID: 11400000, guid: 556b8c6818556284190c860cc32fee5f, type: 2}
+      - {fileID: 11400000, guid: 2bb3592eb6447ef4ea962311030b4f61, type: 2}
+      - {fileID: 11400000, guid: c736a975fe7e85b4a9c0535aec414ae8, type: 2}
+      - {fileID: 11400000, guid: ca9e7b43c65b4274ca65baa4fb905ebe, type: 2}
+      - {fileID: 11400000, guid: bda5fb4fbdaf34d48b960ef34955c35d, type: 2}
+      - {fileID: 11400000, guid: 1df912aae7fcee04094f9248c4c36514, type: 2}
+      - {fileID: 11400000, guid: bb60ba0a936fd0b4db1a6d68627ba055, type: 2}
+      - {fileID: 11400000, guid: 97ee555fbf9486f4fb4c41b9022e176c, type: 2}
+      - {fileID: 11400000, guid: 34b53d8369ff918448603204b75bf21c, type: 2}
+      - {fileID: 11400000, guid: f65b574017bfe274b8b2dcc35b0dfcf9, type: 2}
+      - {fileID: 11400000, guid: 7e40b9fa875c30044bc290b3e6a0701a, type: 2}
+      - {fileID: 11400000, guid: 1f2663ccdd56a734b85dc7d0eedeeb57, type: 2}
+      - {fileID: 11400000, guid: 11764abafe9c35441bc0e00c19fbd26d, type: 2}
+      - {fileID: 11400000, guid: 89ec09eb36f939d41a40d7576b086ede, type: 2}
+      - {fileID: 11400000, guid: 288b95879b0ef6b4994fcc9fc4e50675, type: 2}
+      - {fileID: 11400000, guid: 97744c8fa4933f049bddbccefd38c23a, type: 2}
+      - {fileID: 11400000, guid: 113082ba2b7c6a14bb3c364b1556f757, type: 2}
+      - {fileID: 11400000, guid: 5f694669e73c71d45a29d468bfa68ca3, type: 2}
+      - {fileID: 11400000, guid: 094c40991477f16448ce43e36dfbe6df, type: 2}
+      - {fileID: 11400000, guid: 281109befb00397419d26dd6b839e3be, type: 2}
+      - {fileID: 11400000, guid: 8b215f1ee528abd48a6f2ec825644ed8, type: 2}
+      - {fileID: 11400000, guid: f835d9e41aee8924ba6a2b1cd1d6fc51, type: 2}
+      - {fileID: 11400000, guid: 2e9e8b6e78f8686459d0363c43313b9d, type: 2}
+      - {fileID: 11400000, guid: b3595218983584748b1afc75d7956216, type: 2}
+      - {fileID: 11400000, guid: 1d859ed6abe97794395bac5c398ae980, type: 2}
+      presetNames:
+      - Back10
+      - Back10Slow
+      - Back5
+      - Back5Slow
+      - ExtremleySlow5
+      - Fast5
+      - Lock10
+      - Lock10Slow
+      - Lock5
+      - Lock5Fast
+      - Lock5Slow
+      - Normal5
+      - Quick10
+      - Quick10Fast
+      - Quick10Slow
+      - Quick5
+      - Quick5Fast
+      - Quick5Slow
+      - Slow5
+      - Swing10
+      - Swing10Slow
+      - Swing5
+      - Swing5Fast
+      - Swing5Slow
+      - VeryFast5
+      - VerySlow5
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Scale
+      presets:
+      - {fileID: 11400000, guid: 1edb30db5eed6eb4c866b64fd6d2e543, type: 2}
+      - {fileID: 11400000, guid: b681412432c63c34b9b224b22930a706, type: 2}
+      - {fileID: 11400000, guid: 28bb893dd64d0ea499ce65148c5ca6fa, type: 2}
+      - {fileID: 11400000, guid: faca7a2c512e3df4bbec007c7776dc97, type: 2}
+      - {fileID: 11400000, guid: ff7bf12c499592748afa259316beda69, type: 2}
+      - {fileID: 11400000, guid: 2c4e815f0d51dee4ab67bffbca441684, type: 2}
+      - {fileID: 11400000, guid: 7afb0793c9db7f740b4b14502dcf7df3, type: 2}
+      - {fileID: 11400000, guid: 5e43e17633fb701488065a16f78cb223, type: 2}
+      - {fileID: 11400000, guid: cb8e12c1d2679184eaba647275e7f1e7, type: 2}
+      - {fileID: 11400000, guid: d930c504e8a0f4b479830c9923fb0372, type: 2}
+      - {fileID: 11400000, guid: 9e5397a526e51864aa0528d9e8dc4c81, type: 2}
+      - {fileID: 11400000, guid: 7ba2fedf941050043b48ba55cc44d772, type: 2}
+      - {fileID: 11400000, guid: 03141775499dfba4980bdf7953fbc2b7, type: 2}
+      - {fileID: 11400000, guid: ea3dbf92646e14d4bb7b8cdaa6c99328, type: 2}
+      - {fileID: 11400000, guid: 419cd8730811c7046b8ce43ec98789e2, type: 2}
+      - {fileID: 11400000, guid: 52ae08ebcb8454840a23c97a131500c9, type: 2}
+      - {fileID: 11400000, guid: fd08fd5a3e6c8404ea4b3eaa5f0befb7, type: 2}
+      - {fileID: 11400000, guid: 46a5cad7dfd719f4b9b19d25eec652bb, type: 2}
+      presetNames:
+      - DownFast
+      - DownNormal
+      - DownSlow
+      - ExtremelySlow
+      - Fast
+      - LeftFast
+      - LeftNormal
+      - LeftSlow
+      - Normal
+      - RightFast
+      - RightNormal
+      - RightSlow
+      - Slow
+      - UpFast
+      - UpNormal
+      - UpSlow
+      - VeryFast
+      - VerySlow
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Uncategorized
+      presets:
+      - {fileID: 11400000, guid: 2d6f75b0f23fec14798f41801b48dcf8, type: 2}
+      - {fileID: 11400000, guid: 97ee758916ab4db4c9d28e2cfad6555b, type: 2}
+      presetNames:
+      - DefaultPreset
+      - test
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Uncommon
+      presets:
+      - {fileID: 11400000, guid: e9288706dc0ef6844bd43cb7d6d4591c, type: 2}
+      - {fileID: 11400000, guid: 2710c789a27b6244ca805b50a6d38e05, type: 2}
+      - {fileID: 11400000, guid: 9558501501c4a5145b7fd37ba483d8f2, type: 2}
+      - {fileID: 11400000, guid: 73d17027c70bb0648a5e5a7082dd0499, type: 2}
+      - {fileID: 11400000, guid: 15360de711a19cb4e8b21642e366cf2b, type: 2}
+      - {fileID: 11400000, guid: 6729b105cc55c8441bc9d08531e2b815, type: 2}
+      - {fileID: 11400000, guid: a61c59eb91337ff4fbbe6b03886f93f8, type: 2}
+      - {fileID: 11400000, guid: 83b2250b54560e14fb84290937e3c307, type: 2}
+      - {fileID: 11400000, guid: 760cae039ebed2545aac447e3e6dd935, type: 2}
+      - {fileID: 11400000, guid: 0c63a7102779eb24dbf3bf74f09135ca, type: 2}
+      - {fileID: 11400000, guid: 67f333082a2b9534f9bae6555126704f, type: 2}
+      - {fileID: 11400000, guid: 01c6087b4eef660489f7c6d4d5aab82f, type: 2}
+      - {fileID: 11400000, guid: 5b1ccf365e9b3cd47addeb06b804be38, type: 2}
+      - {fileID: 11400000, guid: 50b48fa2312b2544c828cb95e1c78b78, type: 2}
+      - {fileID: 11400000, guid: c31f2f723121dc340876d86330cc0e7f, type: 2}
+      - {fileID: 11400000, guid: ea69e5163470c2d4b8f4bdaf2aacb5be, type: 2}
+      presetNames:
+      - InAndOutFast
+      - InAndOutNormal
+      - InAndOutSlow
+      - Levitate
+      - PinTwitchBottomLeft
+      - PinTwitchBottomRight
+      - PinTwitchTopLeft
+      - PinTwitchTopRight
+      - ScaleDownSwing5
+      - ScaleDownSwing5Fast
+      - ScaleDownSwing5Slow
+      - ScaleUpSwing5
+      - ScaleUpSwing5Fast
+      - ScaleUpSwing5Slow
+      - TwitchLeft
+      - TwitchRight
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    categoryNames:
+    - Elastic
+    - Fade
+    - Move
+    - Organic
+    - Rotate
+    - Scale
+    - Uncategorized
+    - Uncommon
+  DatabasePunchAnimations:
+    categories:
+    - categoryName: Flip
+      presets:
+      - {fileID: 11400000, guid: df3666e8982c91d43b8cea933d540c58, type: 2}
+      - {fileID: 11400000, guid: e54f7bcfbdedcc64bbae15ce08774fef, type: 2}
+      - {fileID: 11400000, guid: 79f3e466f3073404e90b3c6f50b39352, type: 2}
+      - {fileID: 11400000, guid: d36846411f6af1748883dc7de2933a37, type: 2}
+      - {fileID: 11400000, guid: d08baba35e8fb334a8327aa4eb8bf7fa, type: 2}
+      - {fileID: 11400000, guid: 2a0d35f8dd8b2334ea17afec9fd51726, type: 2}
+      - {fileID: 11400000, guid: cb3ea8e56c3ec6c4c87b92ad6f5de95b, type: 2}
+      - {fileID: 11400000, guid: feca012906afbb84dbd14f02712de4d3, type: 2}
+      - {fileID: 11400000, guid: 0177f1a052a86dc4ab528e795c241ca5, type: 2}
+      - {fileID: 11400000, guid: 3d26429cc7683084f8c98bfa06b16170, type: 2}
+      - {fileID: 11400000, guid: 15020507393e2f343a8e8802ca7563be, type: 2}
+      - {fileID: 11400000, guid: ebea0a1c9477a0a47aa1c6e9c0ad1c33, type: 2}
+      - {fileID: 11400000, guid: 1131c151f01ceef43b541e6daf38cb02, type: 2}
+      - {fileID: 11400000, guid: 1262aaf95965c8048b4fe46125291760, type: 2}
+      - {fileID: 11400000, guid: 7c395b398d9bc1f4c8501b79fe1b3948, type: 2}
+      - {fileID: 11400000, guid: 44aa7800f0d9c754d94c2d9ac696f8ea, type: 2}
+      - {fileID: 11400000, guid: 04d68f7cf9790304b91a7252cdf73637, type: 2}
+      - {fileID: 11400000, guid: 2b90708837a2c83409b8425ec1198a84, type: 2}
+      - {fileID: 11400000, guid: 8d029ff940563bf4280b655f248b3881, type: 2}
+      - {fileID: 11400000, guid: cf352098ba9278a49abd20b0dd830a19, type: 2}
+      presetNames:
+      - Horizontal180
+      - Horizontal180In
+      - Horizontal180Out
+      - Horizontal360
+      - Horizontal360In
+      - Horizontal360Out
+      - Horizontal45Left
+      - Horizontal45Right
+      - QuickDown
+      - QuickLeft
+      - QuickRight
+      - QuickUp
+      - Vertical180
+      - Vertical180In
+      - Vertical180Out
+      - Vertical360
+      - Vertical360In
+      - Vertical360Out
+      - Vertical45Down
+      - Vertical45Up
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Jump
+      presets:
+      - {fileID: 11400000, guid: 030f6d995e6f92c40868bf14b4ebd74c, type: 2}
+      - {fileID: 11400000, guid: 4fd8e9ed82d1b7d48b7e664805636e7b, type: 2}
+      - {fileID: 11400000, guid: d34a237554243a14a8f387a2993c7026, type: 2}
+      - {fileID: 11400000, guid: a67aad2c895963748bdf5e8c7cbae40b, type: 2}
+      - {fileID: 11400000, guid: 4b4f1541189d9c04e8773f5444ef1437, type: 2}
+      - {fileID: 11400000, guid: bb4cb9c9d61a8d14f9dbabcd7637aa06, type: 2}
+      - {fileID: 11400000, guid: a2c201b31e263f943983068d7a39e9f4, type: 2}
+      - {fileID: 11400000, guid: 6fdcf302be30b0345b69d39f5ddcf5e9, type: 2}
+      - {fileID: 11400000, guid: 57e673cd7a19c1e42b3b8881c84e048c, type: 2}
+      - {fileID: 11400000, guid: 2e1971eb795935146b4780729aa625e4, type: 2}
+      - {fileID: 11400000, guid: eff63cf211282d44492542ea4ee4f285, type: 2}
+      - {fileID: 11400000, guid: e25f44d9a68cd1142bd83503b7d423d9, type: 2}
+      - {fileID: 11400000, guid: d8bd96dfb99a4994cb5122511d158c0c, type: 2}
+      - {fileID: 11400000, guid: f57322282f78a0c40a522ec9b468a018, type: 2}
+      - {fileID: 11400000, guid: def8d0de7568104448e382863e500e80, type: 2}
+      - {fileID: 11400000, guid: 60f377add5e974b43a9c81a320fcc3d0, type: 2}
+      - {fileID: 11400000, guid: 150b98b95ffbb244787f3b04aa9b859a, type: 2}
+      - {fileID: 11400000, guid: 855386ec055feaa438141276b763b8a0, type: 2}
+      - {fileID: 11400000, guid: 6d7b6df9f5b78664a8439d321d955c5a, type: 2}
+      - {fileID: 11400000, guid: c60b9a4b36178e54fb25a6fe73f321b2, type: 2}
+      presetNames:
+      - BobDown
+      - BobLeft
+      - BobRight
+      - BobUp
+      - ClickIn
+      - ClickOut
+      - RotateLeft
+      - RotateRight
+      - ScaleDown
+      - ScaleLeft
+      - ScaleRight
+      - ScaleUp
+      - SimpleDown
+      - SimpleLeft
+      - SimpleRight
+      - SimpleUp
+      - SlingHard
+      - SlingSoft
+      - SoftLeft
+      - SoftRight
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Organic
+      presets:
+      - {fileID: 11400000, guid: cb6c8a1ee579f334182b35dcdf7adda0, type: 2}
+      - {fileID: 11400000, guid: 07138e99cb47b4c4b90fdfef30c740be, type: 2}
+      - {fileID: 11400000, guid: 191e7c64e34fcd54cb577a7e9a1ca149, type: 2}
+      - {fileID: 11400000, guid: b8a38e53bdef2db45a0ff91f0de258db, type: 2}
+      - {fileID: 11400000, guid: b76aa5aed3ecd534cafb86bd2b2cb881, type: 2}
+      - {fileID: 11400000, guid: a59341c7222faf44cb3c992513e66c54, type: 2}
+      - {fileID: 11400000, guid: afdcc707acd14c9449d88095ad80427b, type: 2}
+      - {fileID: 11400000, guid: 72515ff8ffe7d17409bd939f43bf5ccf, type: 2}
+      - {fileID: 11400000, guid: 63f429f468a28284085c377873b0e80c, type: 2}
+      - {fileID: 11400000, guid: 38b7eb8502a857d45a1c18a44e3c6b0d, type: 2}
+      - {fileID: 11400000, guid: d755634caf5815546808a3b58d0e7fbc, type: 2}
+      - {fileID: 11400000, guid: ae7cb0484e03d5b4595db4b4c532f1c1, type: 2}
+      - {fileID: 11400000, guid: 29b26195e9c2ce84eb119410be20d36f, type: 2}
+      - {fileID: 11400000, guid: c23f5da71291e244c88f07d3bb122375, type: 2}
+      - {fileID: 11400000, guid: 57cdbeff0ce80444da73f7d9583159bd, type: 2}
+      - {fileID: 11400000, guid: 3d798c632f3d5104f8b7736dee82c0a1, type: 2}
+      - {fileID: 11400000, guid: 43b42096fe770bf4e9dd62a96aadc72a, type: 2}
+      - {fileID: 11400000, guid: f6f41926ede8d1c45bdafe5185df1fd0, type: 2}
+      - {fileID: 11400000, guid: 29d2e9a117c75864382714c31d2a906f, type: 2}
+      - {fileID: 11400000, guid: ce9b794627534d04da2fc0b7ba32df59, type: 2}
+      presetNames:
+      - BlowDown
+      - BlowLeft
+      - BlowRight
+      - BlowUp
+      - GummyFast
+      - GummyNormal
+      - GummySlow
+      - HeavyJumpDown
+      - HeavyJumpLeft
+      - HeavyJumpRight
+      - HeavyJumpUp
+      - JellyFast
+      - JellyNormal
+      - JellySlow
+      - JumpDown
+      - JumpLeft
+      - JumpRight
+      - JumpUp
+      - QuickDown
+      - QuickUp
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Rotate
+      presets:
+      - {fileID: 11400000, guid: fc4af2799e8ec4f4e83f3e524f09543e, type: 2}
+      - {fileID: 11400000, guid: d5375ed2149ea1942bb639f01f77674e, type: 2}
+      - {fileID: 11400000, guid: 86aa5c88949e57444afce31fc3435b43, type: 2}
+      - {fileID: 11400000, guid: 3e16a9cb4f861644cbbfc0c934dbeba2, type: 2}
+      - {fileID: 11400000, guid: 9a80ef9fe58c04e4bbc93c566aaf64f3, type: 2}
+      - {fileID: 11400000, guid: 71ab11837ef545648844bc25aa36271b, type: 2}
+      - {fileID: 11400000, guid: 1801f41826a49c14b954c24c28558d16, type: 2}
+      - {fileID: 11400000, guid: 6f0c2691e0403ce45b501fcb32339c87, type: 2}
+      - {fileID: 11400000, guid: 15642f9601623b1489d4750414cb2b63, type: 2}
+      - {fileID: 11400000, guid: 024a3180c89f3b443b521f70c4a639d5, type: 2}
+      - {fileID: 11400000, guid: 8a281120efcd7cb4b94875eb26de8e15, type: 2}
+      - {fileID: 11400000, guid: 7d162f7a1ee06eb4ebccf69e4bfb0dbe, type: 2}
+      - {fileID: 11400000, guid: 46986c56d38f8244288eb2a084322a4e, type: 2}
+      - {fileID: 11400000, guid: 0fa77d9756bb0d24a8e729013654e5b1, type: 2}
+      - {fileID: 11400000, guid: 564eebae34d867e4288c18cabde300b4, type: 2}
+      - {fileID: 11400000, guid: d02da88bc3240e74e96b7326d84f06e0, type: 2}
+      - {fileID: 11400000, guid: 10852c24ba2e60849b0174d9f1598187, type: 2}
+      - {fileID: 11400000, guid: ff08d1a351a801943b25877f850cc109, type: 2}
+      - {fileID: 11400000, guid: 2aed2327786fb7346924b1450fe6d468, type: 2}
+      - {fileID: 11400000, guid: c886f61bc6b245e46b966fae97b76765, type: 2}
+      presetNames:
+      - BounceLeft
+      - BounceRight
+      - ElasticDownLeft
+      - ElasticDownRight
+      - ElasticLeft
+      - ElasticRight
+      - FlipLeft
+      - FlipRight
+      - HammerLeft
+      - HammerRight
+      - JumpyLeft
+      - JumpyRight
+      - NipLeft
+      - NipRight
+      - QuakeLeft
+      - QuakeRight
+      - TwitchLeft
+      - TwitchRight
+      - WaveLeft
+      - WaveRight
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Scale
+      presets:
+      - {fileID: 11400000, guid: 174bb1ed38d80b443b8c5336bbc28443, type: 2}
+      - {fileID: 11400000, guid: 3a87e1ff3eee2eb438839a9d36423cf3, type: 2}
+      - {fileID: 11400000, guid: 644d0317c112d9d459b16abda1183229, type: 2}
+      - {fileID: 11400000, guid: 77f52e84d4fba8a4380ca18bccf136e7, type: 2}
+      - {fileID: 11400000, guid: 950c5357ac61987449fa9f4537e81687, type: 2}
+      - {fileID: 11400000, guid: 25074574c76d7b24cbfa0969862aa934, type: 2}
+      - {fileID: 11400000, guid: 20dab0e93755794488fbc1c98b0cf563, type: 2}
+      - {fileID: 11400000, guid: fbee0aef591912249b50444eb3cf7751, type: 2}
+      - {fileID: 11400000, guid: 589218eb0894e9144838621d5115fa24, type: 2}
+      - {fileID: 11400000, guid: e7d6acd2228b51c439625232958c60cd, type: 2}
+      - {fileID: 11400000, guid: 596fbaf5ba67bde49afb6106a43a23e7, type: 2}
+      - {fileID: 11400000, guid: aea5c2f8f2c1ba643bd7eb061d12ee2b, type: 2}
+      - {fileID: 11400000, guid: ae2850bbb65bdee4fb32584d01edb8f3, type: 2}
+      - {fileID: 11400000, guid: 00077d2488330894ea87118d14f8b5a7, type: 2}
+      - {fileID: 11400000, guid: 6e5a92d57e19c8d4ab85c1eb7f7ea6eb, type: 2}
+      - {fileID: 11400000, guid: 228cf06ba0b658244be49c0bb265c6fd, type: 2}
+      - {fileID: 11400000, guid: 8e3c7f97a2747a64ab557ace8bf632f2, type: 2}
+      - {fileID: 11400000, guid: 140eda9c3e4882940981961e0b86d6f8, type: 2}
+      - {fileID: 11400000, guid: a43c0c213094abc4a9e904a717b1cc15, type: 2}
+      - {fileID: 11400000, guid: 1119f904f76cb914a9e76dd689392ddc, type: 2}
+      presetNames:
+      - ClickInFast
+      - ClickInNormal
+      - ClickInSlow
+      - ClickOutFast
+      - ClickOutNormal
+      - ClickOutSlow
+      - ElasticIn
+      - ElasticOut
+      - ElasticRotateLeft
+      - ElasticRotateRight
+      - HorizontalInFast
+      - HorizontalInNormal
+      - HorizontalInSlow
+      - HorizontalOutFast
+      - HorizontalOutNormal
+      - HorizontalOutSlow
+      - RotateInLeft
+      - RotateInRight
+      - RotateOutLeft
+      - RotateOutRight
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Slide
+      presets:
+      - {fileID: 11400000, guid: 9bf5e37138fe3b645abb73c0424d0016, type: 2}
+      - {fileID: 11400000, guid: 7418e13aa8385ea42b9f1b45ddb9dc39, type: 2}
+      - {fileID: 11400000, guid: f91fe28ae8890bd49befc38ebcb74533, type: 2}
+      - {fileID: 11400000, guid: fc9e582c34d736a47a3bf3dec7076331, type: 2}
+      - {fileID: 11400000, guid: e3654269e0da53940933489f307f8b42, type: 2}
+      - {fileID: 11400000, guid: da3ade56937104747a0e479a45170101, type: 2}
+      - {fileID: 11400000, guid: ded41cdd964a38348bc404adb2bb99fb, type: 2}
+      - {fileID: 11400000, guid: 3b413658339862e45996a32810a12941, type: 2}
+      - {fileID: 11400000, guid: 01d3466dd1ac99c4dadde703ff7e15f4, type: 2}
+      - {fileID: 11400000, guid: c70abea21dac3e6469bfb72955e93c3b, type: 2}
+      - {fileID: 11400000, guid: 2c9673ce27328bf469fc3ac3500d859b, type: 2}
+      - {fileID: 11400000, guid: c6e82e63d94c15248ae71aa29ed3aae8, type: 2}
+      - {fileID: 11400000, guid: d0ef5e034091822469c77ac5a8561239, type: 2}
+      - {fileID: 11400000, guid: 13309608e7a9966409f4b4fb842140b9, type: 2}
+      - {fileID: 11400000, guid: e7949da7c0235404397cbf8a21bd82b1, type: 2}
+      - {fileID: 11400000, guid: 86926c81210e1b147af92615225a5565, type: 2}
+      - {fileID: 11400000, guid: 73254b9ba56718b4aafaa5cff92ee73e, type: 2}
+      - {fileID: 11400000, guid: 984579db05a798740a8fdc0a3f52af66, type: 2}
+      - {fileID: 11400000, guid: e8c5216a63e66c644990b6b5923ab812, type: 2}
+      - {fileID: 11400000, guid: f082b3fe326c50b469d21196367af1bb, type: 2}
+      presetNames:
+      - BumpLeft
+      - BumpRight
+      - FlopLeft
+      - FlopRight
+      - GrowLeft
+      - GrowRight
+      - RotateLeft
+      - RotateRight
+      - RushLeft
+      - RushRight
+      - SimpleLeftFast
+      - SimpleLeftNormal
+      - SimpleRightFast
+      - SimpleRightNormal
+      - SoftRotateLeft
+      - SoftRotateRight
+      - VibrateLeft
+      - VibrateRight
+      - WiggleLeft
+      - WiggleRight
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Stretch
+      presets:
+      - {fileID: 11400000, guid: 9dbb6e604da826a4c8599cd0264e656b, type: 2}
+      - {fileID: 11400000, guid: eb7c5a54f01106c4b98ad94d6406106d, type: 2}
+      - {fileID: 11400000, guid: cfc53d662eafdf143b1d70fe804ff1e0, type: 2}
+      - {fileID: 11400000, guid: 04c1c31bebbaf34478ad7c175b6713c4, type: 2}
+      - {fileID: 11400000, guid: a57adfad17dbd8643af7163687ad47ca, type: 2}
+      - {fileID: 11400000, guid: 476d883e837aa3e468aab1fecbdbe631, type: 2}
+      presetNames:
+      - HorizontalFast
+      - HorizontalNormal
+      - HorizontalSlow
+      - VerticalFast
+      - VerticalNormal
+      - VerticalSlow
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    - categoryName: Uncategorized
+      presets:
+      - {fileID: 11400000, guid: 39385e644d8acf941b723063db0d876b, type: 2}
+      - {fileID: 11400000, guid: a866055b1bbddf34ba0b49bb372ab5c8, type: 2}
+      presetNames:
+      - DefaultPreset
+      - tesss
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    categoryNames:
+    - Flip
+    - Jump
+    - Organic
+    - Rotate
+    - Scale
+    - Slide
+    - Stretch
+    - Uncategorized
+  DatabaseStateAnimations:
+    categories:
+    - categoryName: Uncategorized
+      presets:
+      - {fileID: 11400000, guid: 0b8c57f9f1f07bc4d84072f0f6d08479, type: 2}
+      presetNames:
+      - DefaultPreset
+      isExpanded:
+        m_Target: 0
+        speed: 2
+        m_Value: 0
+    categoryNames:
+    - Uncategorized

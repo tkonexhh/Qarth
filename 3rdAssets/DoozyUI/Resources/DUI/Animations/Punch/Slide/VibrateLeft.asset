@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50559f3844f76b84db1427df7fce705b, type: 3}
+  m_Name: VibrateLeft
+  m_EditorClassIdentifier: 
+  presetCategory: Slide
+  presetName: VibrateLeft
+  data:
+    move:
+      enabled: 1
+      punch: {x: -40, y: 0, z: 0}
+      startDelay: 0
+      duration: 0.4
+      vibrato: 12
+      elasticity: 0.5
+    rotate:
+      enabled: 1
+      punch: {x: 30, y: 0, z: 30}
+      startDelay: 0.1
+      duration: 0.3
+      vibrato: 64
+      elasticity: 0.5
+    scale:
+      enabled: 0
+      punch: {x: -0.6, y: 0.6, z: 0}
+      startDelay: 0
+      duration: 0.6
+      vibrato: 6
+      elasticity: 0.5
+    moveIsExpanded:
+      m_Target: 0
+      speed: 2
+      m_Value: 0
+    rotateIsExpanded:
+      m_Target: 0
+      speed: 2
+      m_Value: 0
+    scaleIsExpanded:
+      m_Target: 0
+      speed: 2
+      m_Value: 0
+  isExpanded:
+    m_Target: 0
+    speed: 2
+    m_Value: 0
