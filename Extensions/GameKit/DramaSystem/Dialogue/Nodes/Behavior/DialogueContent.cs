@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 
-
-namespace GFrame.Drame
+namespace GFrame.Drama
 {
     [CreateNodeMenu("GFrame/Drama System/Content")]
     public class DialogueContent : DialogueBaseNode
@@ -12,15 +13,27 @@ namespace GFrame.Drame
         [Output] public Connection Output;
 
         [Input]
+        [Header("标题")]
+        public string Title;
+
+        [Input]
         [TextArea]
         [Header("显示文本")]
         public string Content;
 
-        [Header("对话立绘")]
-        public Texture2D Speaker;
+        public UnityEvent FinishAction;
 
-        [Header("对话框背景")]
-        public Texture2D ContentBg;
+
+        //不可以直接用Conten，否则获取不到外部输入节点
+        public string GetContent()
+        {
+            return GetInputValue<string>("Content", this.Content);
+        }
+
+        public string GetTitle()
+        {
+            return GetInputValue<string>("Title", this.Title);
+        }
 
         protected override void Init()
         {

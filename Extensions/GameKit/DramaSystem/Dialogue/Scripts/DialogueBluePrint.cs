@@ -5,7 +5,7 @@ using System;
 using XNode;
 
 
-namespace GFrame.Drame
+namespace  GFrame.Drama
 {
     [Serializable, CreateAssetMenu(fileName = "New Drama Graph", menuName = "GFrame/Drama System/Create Drama Graph")]
     public class DialogueBluePrint : NodeGraph

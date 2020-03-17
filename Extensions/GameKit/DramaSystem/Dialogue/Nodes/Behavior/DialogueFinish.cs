@@ -4,9 +4,9 @@ using UnityEngine;
 using XNode;
 
 
-namespace GFrame.Drame
+namespace GFrame.Drama
 {
-    [CreateNodeMenu("GFrame/Drama System/Drama Finish")]
+    [CreateNodeMenu("GFrame/Drama System/Finish")]
     public class DialogueFinish : DialogueBaseNode
     {
         [Input(ShowBackingValue.Always, ConnectionType.Override)]

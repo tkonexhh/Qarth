@@ -124,13 +124,7 @@ namespace Qarth
 
 
 
-        static public List<Transform> GetChildTrsList(this Transform trsRoot)
-        {
-            List<Transform> parts = new List<Transform>();
-            for (int i = 0; i < trsRoot.childCount; i++)
-                parts.Add(trsRoot.GetChild(i));
-            return parts;
-        }
+
 
         public static float Pixel2DP(float pixel)
         {

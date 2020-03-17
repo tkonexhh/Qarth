@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEditor;
 using Qarth;
 
-namespace GFrame.Drame
+namespace GFrame.Drama
 {
 
     public class DialoguePreviewPlayer : EditorWindow
@@ -36,8 +36,8 @@ namespace GFrame.Drame
             m_Player.OnDoChoose = (choose) =>
             {
                 m_CurStatus = GUIStatus.choose;
-                m_Title = "Title";
-                m_Content = choose.Content;
+                m_Title = choose.GetTitle();
+                m_Content = choose.GetContent();
 
                 var chooses = choose.Chooses;
                 List<Button> buttons = new List<Button>();
@@ -46,7 +46,7 @@ namespace GFrame.Drame
                     int index = i;
                     buttons.Add(new Button()
                     {
-                        Title = chooses[i].title,
+                        Title = chooses[i].Title,
                         callback = () => { m_Player.NextWithParam(index); }
                     });
                 }
@@ -57,8 +57,8 @@ namespace GFrame.Drame
             m_Player.OnDoContent = (content) =>
             {
                 m_CurStatus = GUIStatus.content;
-                m_Title = "Title";
-                m_Content = content.Content;
+                m_Title = content.GetTitle();
+                m_Content = content.GetContent();
             };
 
             m_Player.OnDoFinish = (finish) =>
@@ -115,6 +115,7 @@ namespace GFrame.Drame
                     AssetDatabase.ReleaseCachedFileHandles();
 
                     var asset = AssetDatabase.LoadAssetAtPath<DialogueBluePrint>(m_SelectPath);
+                    Debug.LogError(m_SelectPath);
                     if (asset == null)
                     {
                         EditorUtility.DisplayDialog("失败", "载入文件失败", "嗯");

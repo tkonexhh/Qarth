@@ -5,7 +5,7 @@ using UnityEditor;
 using XNodeEditor;
 
 
-namespace GFrame.Drame
+namespace  GFrame.Drama
 {
 
     [CustomNodeEditor(typeof(DialogueFinish))]

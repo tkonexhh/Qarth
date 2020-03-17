@@ -4,6 +4,7 @@
 // A Copy of the EULA APPENDIX 1 is available at http://unity3d.com/company/legal/as_terms
 
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Qarth
 {
@@ -639,6 +640,24 @@ namespace Qarth
         static public void LookAtXZ(this Transform transform, Vector3 target)
         {
             transform.LookAt(new Vector3(target.x, transform.position.y, target.z));
+        }
+
+        static public List<Transform> GetChildTrsList(this Transform trsRoot)
+        {
+            List<Transform> parts = new List<Transform>();
+            for (int i = 0; i < trsRoot.childCount; i++)
+                parts.Add(trsRoot.GetChild(i));
+            return parts;
+        }
+
+        public static void RemoveAllChild(this Transform transform)
+        {
+            var childs = GetChildTrsList(transform);
+            for (int i = childs.Count - 1; i >= 0; i--)
+            {
+                Object.Destroy(childs[i].gameObject);
+            }
+
         }
     }
 }

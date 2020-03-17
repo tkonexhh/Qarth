@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace GFrame.Drame
+namespace GFrame.Drama
 {
     [CreateNodeMenu("GFrame/Drama System/Choose")]
     public class DialogueChoose : DialogueBaseNode
     {
 
         [Input] public Connection Input;
+
+        [Input]
+        [Header("显示标题")]
+        public string Title;
 
         [Input]
         [TextArea]
@@ -20,9 +24,20 @@ namespace GFrame.Drame
         public List<Choose> Chooses;
 
         [System.Serializable]
-        public struct Choose
+        public class Choose
         {
-            public string title;
+            public string Title;
+        }
+
+
+        public string GetContent()
+        {
+            return GetInputValue<string>("Content", this.Content);
+        }
+
+        public string GetTitle()
+        {
+            return GetInputValue<string>("Title", this.Title);
         }
 
         protected override void Init()
@@ -51,16 +66,34 @@ namespace GFrame.Drame
         public override void DoNextWhitParam(IPlayerForNode player, params object[] args)
         {
             if (args == null || args.Length <= 0) return;
-            int index = (int)args[0];
-            var port = GetOutputPort("Chooses " + index);
-            if (port.ConnectionCount > 0)
+
+            Choose choose = (Choose)(args[0]);
+            int index = -1;
+            for (int i = 0; i < Chooses.Count; i++)
             {
-                var next = port.GetConnection(0).node as DialogueBaseNode;
-                next.Enter(player);
+                if (Chooses[i] == choose)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index != -1)
+            {
+                var port = GetOutputPort("Chooses " + index);
+                if (port.ConnectionCount > 0)
+                {
+                    var next = port.GetConnection(0).node as DialogueBaseNode;
+                    next.Enter(player);
+                }
+                else
+                {
+                    Debug.LogError("[Drama][Choose Item Node No Connect]");
+                }
             }
             else
             {
-                Debug.LogError("#Drama Choose Item Node No Connect");
+                Debug.LogError("[Drama][Choose Item No Choose]");
             }
 
         }

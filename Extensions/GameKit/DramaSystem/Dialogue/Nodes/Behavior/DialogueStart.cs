@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace GFrame.Drame
+namespace GFrame.Drama
 {
-    [CreateNodeMenu("GFrame/Drama System/Drama Start")]
+    [CreateNodeMenu("GFrame/Drama System/Start")]
     public class DialogueStart : DialogueBaseNode
     {
         [Output(ShowBackingValue.Unconnected, ConnectionType.Override)]
@@ -17,9 +17,6 @@ namespace GFrame.Drame
             base.Init();
             this.name = "Start";
         }
-
-
-
 
 
         #region 
@@ -38,21 +35,9 @@ namespace GFrame.Drame
             }
         }
 
-        public override void Exit(IPlayerForNode player)
-        {
-
-        }
-
-        public override void DoNext(IPlayerForNode player)
-        {
-
-        }
-
-
-        public override void DoNextWhitParam(IPlayerForNode player, params object[] args)
-        {
-
-        }
+        public override void Exit(IPlayerForNode player) { }
+        public override void DoNext(IPlayerForNode player) { }
+        public override void DoNextWhitParam(IPlayerForNode player, params object[] args) { }
 
         #endregion
     }

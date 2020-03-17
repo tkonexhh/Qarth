@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace GFrame.Drame
+namespace  GFrame.Drama
 {
     public interface IPlayerForNode
     {

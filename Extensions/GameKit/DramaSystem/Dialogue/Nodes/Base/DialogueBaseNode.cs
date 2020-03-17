@@ -4,10 +4,11 @@ using UnityEngine;
 using XNode;
 
 
-namespace GFrame.Drame
+namespace GFrame.Drama
 {
     public abstract class DialogueBaseNode : Node
     {
+
         abstract public void Enter(IPlayerForNode player);
         abstract public void Exit(IPlayerForNode player);
         abstract public void DoNext(IPlayerForNode player);
