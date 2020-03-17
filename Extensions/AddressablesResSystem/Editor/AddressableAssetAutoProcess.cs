@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 using UnityEngine.AddressableAssets;
+using UnityEditor.AddressableAssets.Settings;
 
 namespace Qarth.Editor
 {
-
-
     public class AddressableAssetAutoProcess : AssetPostprocessor
     {
+        private static AddressableAssetSettings setting = AssetDatabase.LoadAssetAtPath<AddressableAssetSettings>("Assets/AddressableAssetsData/AddressableAssetSettings.asset");
+
+
         public static void OnPostprocessAllAssets(string[] importedAsset, string[] deleteAsset, string[] movedAssets, string[] movedFromAssetPaths)
         {
             ProcessImportedAssets(importedAsset);
-            //ProcessMovedAsset(movedAssets, movedFromAssetPaths);
+            ProcessMovedAsset(movedAssets, movedFromAssetPaths);
         }
 
         private static void ProcessImportedAssets(string[] assetPath)
@@ -26,17 +28,29 @@ namespace Qarth.Editor
 
             for (int i = 0; i < assetPath.Length; ++i)
             {
-                if (CheckIsRes4AssetBundle(assetPath[i]))
+                if (CheckIsRes4Addresable(assetPath[i]))
                 {
-                    //ProcessAssetBundleTag(assetPath[i], true);
+                    ProcessAssetGroup(assetPath[i]);
+                }
+            }
+        }
+
+        private static void ProcessMovedAsset(string[] movedAssets, string[] movedFromAssets)
+        {
+
+            if (movedAssets != null && movedAssets.Length > 0)
+            {
+                for (int i = 0; i < movedAssets.Length; ++i)
+                {
+                    ProcessAssetGroup(movedAssets[i], movedFromAssets[i]);
                 }
             }
         }
 
 
-        private static bool CheckIsRes4AssetBundle(string name)
+        private static bool CheckIsRes4Addresable(string name)
         {
-            if (name.StartsWith("Assets/") && name.Contains("/Res/"))
+            if (name.StartsWith("Assets/") && name.Contains("/AddressableRes/"))
             {
                 return true;
             }
@@ -44,7 +58,7 @@ namespace Qarth.Editor
             return false;
         }
 
-        private static void ProcessAssetBundleTag(string assetPath, bool tag)
+        private static void ProcessAssetGroup(string assetPath)
         {
             AssetImporter ai = AssetImporter.GetAtPath(assetPath);
             if (ai == null)
@@ -53,7 +67,59 @@ namespace Qarth.Editor
                 return;
             }
 
+            string fullPath = EditorUtils.AssetsPath2ABSPath(assetPath);
+            if (Directory.Exists(fullPath))
+            {
+                return;
+            }
 
+            string groupName = string.Empty;
+
+            string dirName = Path.GetDirectoryName(assetPath);
+            string assetBundleName = EditorUtils.AssetPath2ReltivePath(dirName).ToLower();
+            assetBundleName = assetBundleName.Replace("addressableres/", "");
+
+            if (assetPath.Contains("FolderMode"))
+            {
+                groupName = assetBundleName;
+            }
+            else
+            {
+                groupName = setting.DefaultGroup.name;
+            }
+
+            groupName = groupName.Replace("/", "-");
+            var group = setting.FindGroup(groupName);
+            if (group == null)
+            {
+                //Debug.LogError("ProcessAssetGroup:" + groupName);
+                group = setting.CreateGroup(groupName, false, false, false, null);
+            }
+
+            if (group == null)
+            {
+                return;
+            }
+
+            var guid = AssetDatabase.AssetPathToGUID(assetPath);
+            var entry = setting.CreateOrMoveEntry(guid, group);
+            entry.SetAddress(PathHelper.FileNameWithoutSuffix(Path.GetFileName(assetPath)), true);
+            //EditorUtility.SetDirty(setting);
+        }
+
+        /// <summary>
+        /// 处理移动
+        /// </summary>
+        /// <param name="assetPath"></param>
+        /// <param name="moveFromPath"></param>
+        private static void ProcessAssetGroup(string assetPath, string moveFromPath)
+        {
+            AssetImporter ai = AssetImporter.GetAtPath(assetPath);
+            if (ai == null)
+            {
+                Log.e("Not Find Asset:" + assetPath);
+                return;
+            }
 
             string fullPath = EditorUtils.AssetsPath2ABSPath(assetPath);
             if (Directory.Exists(fullPath))
@@ -61,25 +127,46 @@ namespace Qarth.Editor
                 return;
             }
 
-            if (tag)
+            if (CheckIsRes4Addresable(assetPath))//如果移动到了另一个资源文件夹
             {
-                string dirName = Path.GetDirectoryName(assetPath);
-                string assetBundleName = EditorUtils.AssetPath2ReltivePath(dirName).ToLower(); //EditUtils.GetReltivePath4AssetPath(folderPath).ToLower();
-                assetBundleName = assetBundleName.Replace("resources/", "");
-
-                if (assetPath.Contains("FolderMode"))
-                {
-                    ai.assetBundleName = assetBundleName + ".bundle";
-                }
-                else
-                {
-                    ai.assetBundleName = string.Format("{0}/{1}.bundle", assetBundleName, PathHelper.FileNameWithoutSuffix(Path.GetFileName(assetPath)));
-                }
+                ProcessAssetGroup(assetPath);
             }
             else
             {
-                ai.assetBundleName = string.Empty;
+                var guid = AssetDatabase.AssetPathToGUID(assetPath);
+                setting.RemoveAssetEntry(guid);
             }
+
+            if (CheckIsRes4Addresable(moveFromPath))
+            {
+                //处理移动前的Group
+                string removeFromGroupName = string.Empty;
+                string dirName = Path.GetDirectoryName(moveFromPath);
+                string assetBundleName = EditorUtils.AssetPath2ReltivePath(dirName).ToLower();
+                assetBundleName = assetBundleName.Replace("addressableres/", "");
+
+                if (moveFromPath.Contains("FolderMode"))
+                {
+                    removeFromGroupName = assetBundleName;
+                }
+                else
+                {
+                    removeFromGroupName = setting.DefaultGroup.name;
+                }
+                removeFromGroupName = removeFromGroupName.Replace("/", "-");
+                //Debug.LogError("removeFromGroupName:" + removeFromGroupName);
+                var group = setting.FindGroup(removeFromGroupName);
+                if (group != null)
+                {
+                    if (group.entries.Count == 0)
+                    {
+                        setting.RemoveGroup(group);
+                    }
+
+                }
+            }
+
+            //EditorUtility.SetDirty(setting);
         }
     }
 }
