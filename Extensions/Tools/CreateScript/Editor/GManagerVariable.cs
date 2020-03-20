@@ -69,6 +69,7 @@ namespace Qarth
         }
 
         StringBuilder variable = new StringBuilder();
+        StringBuilder assetNotNull = new StringBuilder();
         StringBuilder controllerEvent = new StringBuilder();
         StringBuilder attributeVariable = new StringBuilder();
         StringBuilder attribute = new StringBuilder();
@@ -84,6 +85,7 @@ namespace Qarth
             function.Length =
             register.Length =
             variable.Length =
+            assetNotNull.Length =
             controllerEvent.Length =
             attribute.Length =
             find.Length = 0;
@@ -91,28 +93,36 @@ namespace Qarth
             foreach (var value in dic.Values)
             {
                 if (!value.state.isVariable) continue;
-                //variable.AppendFormat(GConfigure.variableFormat, value.type, value.name);
                 variable.AppendFormat(GConfigure.variableFormat, value.type, value.state.attributeName);
+                assetNotNull.AppendFormat(GConfigure.assetNotNull, value.state.attributeName);
 
                 for (int i = 0; i < value.LstSubModel.Count; i++)
                 {
                     if (value.LstSubModel[i].state.isVariable)
+                    {
                         variable.AppendFormat(GConfigure.variableFormat, value.LstSubModel[i].type, value.LstSubModel[i].state.attributeName);
+                        assetNotNull.AppendFormat(GConfigure.assetNotNull, value.LstSubModel[i].state.attributeName);
+                    }
+
                 }
 
                 if (isFind)
                     find.AppendFormat(GConfigure.findFormat, value.name, value.path, value.type);
 
-                if (value.state.isAttribute)
-                {
-                    attribute.AppendFormat(GConfigure.attributeFormat, value.type, value.state.attributeName);
-                }
+                // if (value.state.isAttribute)
+                // {
+                //     attribute.AppendFormat(GConfigure.attributeFormat, value.type, value.state.attributeName);
+                //     assetNotNull.AppendFormat(GConfigure.assetNotNull, value.state.attributeName);
+                // }
 
-                for (int i = 0; i < value.LstSubModel.Count; i++)
-                {
-                    if (value.LstSubModel[i].state.isAttribute)
-                        attribute.AppendFormat(GConfigure.attributeFormat, value.LstSubModel[i].type, value.LstSubModel[i].state.attributeName);
-                }
+                // for (int i = 0; i < value.LstSubModel.Count; i++)
+                // {
+                //     if (value.LstSubModel[i].state.isAttribute)
+                //     {
+                //         attribute.AppendFormat(GConfigure.attributeFormat, value.LstSubModel[i].type, value.LstSubModel[i].state.attributeName);
+                //         assetNotNull.AppendFormat(GConfigure.assetNotNull, value.state.attributeName);
+                //     }
+                // }
 
                 if (value.variableEvent != string.Empty && value.state.isEvent)
                 {
@@ -149,7 +159,7 @@ namespace Qarth
             }
 
             var tmp = string.Format(GConfigure.Version == ScriptVersion.Mono ? GConfigure.uiClassCode_Mono : GConfigure.uiClassCode,
-                variable, attributeVariable, controllerEvent, attribute, find, newAttribute, register, function);
+                variable, attributeVariable, controllerEvent, attribute, assetNotNull, find, newAttribute, register, function);
             return string.Format(GConfigure.uiCode_BindUI, GGlobalFun.GetString(GConfigure.selectTransform.name), tmp);
         }
 
@@ -402,24 +412,34 @@ namespace Qarth
             foreach (var info in infos)
             {
                 if (string.IsNullOrEmpty(info.mainAttrInfo.name)) continue;
-                type.InvokeMember("m_" + info.mainAttrInfo.name,
-                                BindingFlags.SetField |
-                                BindingFlags.Instance |
-                                BindingFlags.NonPublic,
-                                null, target, new object[] { root.Find(info.path).GetComponent(info.mainAttrInfo.type) }, null, null, null);
+                BindAttributeByInfo(type, root, target, info, info.mainAttrInfo);
 
                 foreach (var subInfo in info.subField)
                 {
                     if (string.IsNullOrEmpty(subInfo.name)) continue;
-                    type.InvokeMember("m_" + subInfo.name,
-                                    BindingFlags.SetField |
-                                    BindingFlags.Instance |
-                                    BindingFlags.NonPublic,
-                                    null, target, new object[] { root.Find(info.path).GetComponent(subInfo.type) }, null, null, null);
-
+                    BindAttributeByInfo(type, root, target, info, subInfo);
                 }
             }
+        }
 
+        private void BindAttributeByInfo(System.Type type, Transform root, Component target, GScriptInfo.FieldInfo fieldInfo, GScriptInfo.FieldAttrInfo attrInfo)
+        {
+            if (attrInfo.type == "GameObject")
+            {
+                type.InvokeMember("m_" + attrInfo.name,
+                                              BindingFlags.SetField |
+                                              BindingFlags.Instance |
+                                              BindingFlags.NonPublic,
+                                              null, target, new object[] { root.Find(fieldInfo.path).gameObject }, null, null, null);
+            }
+            else
+            {
+                type.InvokeMember("m_" + attrInfo.name,
+                                              BindingFlags.SetField |
+                                              BindingFlags.Instance |
+                                              BindingFlags.NonPublic,
+                                              null, target, new object[] { root.Find(fieldInfo.path).GetComponent(attrInfo.type) }, null, null, null);
+            }
         }
 
         private void GetBindingInfo()

@@ -52,24 +52,22 @@ namespace Qarth
         public static string haveBeenCreated = "脚本已创建了，点击更新哦~";
         public static string notCreate = "你还没生成脚本呢";
         public static string hasMount = "已经挂载脚本了";
-        public static string editorCompiling = "编辑器傲娇中...";
+        public static string editorCompiling = "编辑器编译中...";
         public static string plugCreate = "没有使用插件生成对应的脚本呢";
         public static string copy = "复制到剪贴板啦！";
-        public static string noMountScript = "还没挂载脚本呢～";
+        public static string noMountScript = "还没挂载脚本～";
         public static string createPrefabSuccessTitle = "预制体创建成功";
 
 
         public static string variableFormat = "\t\t[SerializeField] private {0} m_{1};\n";
         public static string findFormat = "\t\t\tm_{0} = transform.Find(\"{1}\").GetComponent<{2}>();\n";
         public static string attributeVariableFormat = "\t\tprivate {0,-45} m_{1};\n";
-        //public static string attributeFormat = "\t\tpublic {0} {1} {{ get {{ return m_{1}; }} }}\n";
-        //public static string newAttributeFormat = "\t\tq{0,-49} = new Q{1}({0});\n";
+
         public static string attributeFormat = "\t\tpublic {0} {1} {{ get {{ return m_{1}; }} }}\n";
         public static string registerFormat = "\t\t\tm_{0}.{1}.AddListener({2});\n";
         public static string controllerEventFormat = "\t\tpublic Action{0} {1};\n";
         public static string functionFormat = "\t\tprivate void {0}({1})\n\t\t{{\n\t\t\tif( m_{2} != null ){3}({4});\n\t\t}}\n";
-
-        public static string assignmentFormat = "\t\tui.{0,-50} = {1};\n";
+        public static string assetNotNull = "\t\t\tAssert.IsNotNull(m_{0});\n";
         public static string declareFormat = "\tpartial void {0}({1});\n";
         public static string funFormat = "\t\tprivate void {0}({1})\n\t\t{{\n\t\t{2}({3});\n\t\t}}\n";
 
@@ -86,13 +84,7 @@ namespace Qarth
                                                     "\t\tprotected override void OnClose()\n\t\t{\n\t\t}\n\n";
 
         public static string MainFileName { get { return GetMainFileName(); } }
-        // /public static string UIFileName { get { return GetFileName("UI"); } }
         public static string UIBuildFileName { get { return GetFileName("BuildUI"); } }
-        // public static string ModelFileName { get { return GetFileName("Model"); } }
-
-        // public static string UIName { get { return GetClassName("UI"); } }
-        // public static string UIBuildName { get { return GetClassName("BuildUI"); } }
-        // public static string ModelName { get { return GetClassName("Model"); } }
 
         public static readonly string uiCode_Mono =
             "using UnityEngine;\n" +
@@ -127,6 +119,7 @@ namespace Qarth
         public static readonly string uiCode_BindUI =
             "using UnityEngine;\n" +
             "using UnityEngine.UI;\n" +
+            "using UnityEngine.Assertions;\n" +
             "using System;\n\n" +
             "using Qarth;\n\n" +
             "namespace " + GConfigureDefine.namespaceStr + "\n{{\n" +
@@ -138,20 +131,20 @@ namespace Qarth
             "{0}\n{1}\n{2}\n{3}\n" +
             "\t\tpartial void OnAwake();\n" +
             "\t\tprivate void Awake()\n\t\t{{\n" +
-            "{4}\n{5}\n{6}\n" +
+            "{4}\n{5}\n{6}\n{7}\n" +
             "\t\t\tbase.Awake();\n\n" +
             "\t\t\tOnAwake();\n\n" +
-            "\t\t}}\n" +
-            "{7}";
+            "\t\t}}\n\n" +
+            "{8}";
 
         public static readonly string uiClassCode_Mono =
             "{0}\n{1}\n{2}\n{3}\n" +
             "\t\tpartial void OnAwake();\n" +
             "\t\tprivate void Awake()\n\t\t{{\n" +
-            "{4}\n{5}\n{6}\n" +
+            "{4}\n{5}\n{6}\n{7}\n" +
             "\t\t\tOnAwake();\n\n" +
-            "\t\t}}\n" +
-            "{7}";
+            "\t\t}}\n\n" +
+            "{8}";
 
 
         public static ScriptVersion Version
@@ -179,27 +172,6 @@ namespace Qarth
             var path = string.Format("{0}/{1}/{2}/", Application.dataPath, referencePath, GGlobalFun.GetString(Selection.activeTransform.name));
             return path;
         }
-
-        // public static string GetClassName(string suffix)
-        // {
-        //     return string.Format("{1}_{0}", suffix, GGlobalFun.GetString(Selection.activeTransform.name));
-        // }
-
-        // public static string GetInfoPath()
-        // {
-        //     int id;
-        //     var go = PrefabUtility.GetPrefabParent(selectTransform.gameObject);
-        //     if (go != null)
-        //     {
-        //         id = go.GetInstanceID();
-        //     }
-        //     else
-        //     {
-        //         id = selectTransform.gameObject.GetInstanceID();
-        //     }
-        //     //Debug.LogError(InfoPath);
-        //     return string.Format(InfoPath, id);
-        // }
 
         public static void Compiling()
         {
