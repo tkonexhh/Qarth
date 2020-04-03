@@ -18,10 +18,11 @@ namespace GFrame
         {
             private Color m_StartColor = Color.black;
             private float m_FadeTime = 1.0f;
-
+            //protected GameObject m_Overlay;
             public override void Enter(SceneTransitionControl entity)
             {
-                base.Enter(entity);
+                GameObject m_Overlay = new GameObject("EffectGo");
+                m_Overlay.transform.SetParent(entity.transition.transform, false);
 
                 var bgTex = new Texture2D(1, 1);
                 bgTex.SetPixel(0, 0, m_StartColor);
@@ -58,7 +59,6 @@ namespace GFrame
         {
             public override void Enter(SceneTransitionControl entity)
             {
-
                 AddressableResMgr.S.LoadSceneAsync("AddressDemo", (result) =>
                 {
                     if (result.Scene != null)
@@ -66,7 +66,6 @@ namespace GFrame
                         entity.SetState(SceneTransitionControl.SceneTransitionFSMStateID.Hide);
                     }
                 });
-
             }
         }
 

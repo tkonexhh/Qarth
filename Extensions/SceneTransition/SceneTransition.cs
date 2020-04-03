@@ -27,7 +27,6 @@ namespace GFrame
         }
     }
 
-
     public class SceneTransitionControl
     {
         public enum SceneTransitionFSMStateID
@@ -54,9 +53,12 @@ namespace GFrame
 
         public void Init()
         {
-            m_StateMachine.stateFactory.RegisterState(SceneTransitionFSMStateID.Show, new FadeTransition.SceneTransitionState_Show());
-            m_StateMachine.stateFactory.RegisterState(SceneTransitionFSMStateID.Load, new FadeTransition.SceneTransitionState_Load());
-            m_StateMachine.stateFactory.RegisterState(SceneTransitionFSMStateID.Hide, new FadeTransition.SceneTransitionState_Hide());
+            // m_StateMachine.stateFactory.RegisterState(SceneTransitionFSMStateID.Show, new FadeTransition.SceneTransitionState_Show());
+            // m_StateMachine.stateFactory.RegisterState(SceneTransitionFSMStateID.Load, new FadeTransition.SceneTransitionState_Load());
+            // m_StateMachine.stateFactory.RegisterState(SceneTransitionFSMStateID.Hide, new FadeTransition.SceneTransitionState_Hide());
+            m_StateMachine.stateFactory.RegisterState(SceneTransitionFSMStateID.Show, new AnimTransition.SceneTransitionState_Show());
+            m_StateMachine.stateFactory.RegisterState(SceneTransitionFSMStateID.Load, new AnimTransition.SceneTransitionState_Load());
+            m_StateMachine.stateFactory.RegisterState(SceneTransitionFSMStateID.Hide, new AnimTransition.SceneTransitionState_Hide());
             m_StateMachine.stateFactory.RegisterState(SceneTransitionFSMStateID.Clean, new SceneTransitionFSM.SceneTransitionState_Clean());
         }
 
@@ -65,8 +67,6 @@ namespace GFrame
             if (m_StateMachine == null) return;
             m_StateMachine.SetCurrentStateByID(state);
         }
-
-
     }
 
 

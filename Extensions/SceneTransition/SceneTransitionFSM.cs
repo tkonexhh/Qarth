@@ -42,11 +42,9 @@ namespace GFrame
 
         public class SceneTransitionState_Show : SceneTransitionState
         {
-            protected GameObject m_Overlay;
+
             public override void Enter(SceneTransitionControl entity)
             {
-                m_Overlay = new GameObject("EffectGo");
-                m_Overlay.transform.SetParent(entity.transition.transform, false);
 
             }
         }

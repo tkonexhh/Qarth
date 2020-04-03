@@ -165,7 +165,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: <Insert scene name>
-  duration: 1
 --- !u!114 &219002358
 MonoBehaviour:
   m_ObjectHideFlags: 0
