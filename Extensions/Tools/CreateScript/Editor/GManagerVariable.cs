@@ -500,6 +500,8 @@ namespace Qarth
                     AssetDatabase.CreateAsset(so, GConfigure.InfoPath);
                 }
             }
+
+            EditorUtility.SetDirty(so);
         }
     }
 }

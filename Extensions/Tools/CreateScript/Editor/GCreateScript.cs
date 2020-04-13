@@ -80,13 +80,38 @@ namespace Qarth
 
         private void DrawCreatePath()
         {
+            EditorGUILayout.BeginHorizontal();
             GConfigure.referencePath = EditorPrefs.GetString("文件生成路径", GConfigureDefine.referencedefaultPath);
             GConfigure.referencePath = EditorGUILayout.TextField("脚本生成路径：", GConfigure.referencePath);
-            EditorPrefs.SetString("文件生成路径", GConfigure.referencePath);
 
+            if (GUILayout.Button("选择路径", GUILayout.Width(100)))
+            {
+                GConfigure.referencePath = EditorUtility.OpenFolderPanel("文件生成路径", Application.dataPath, "");
+                GConfigure.referencePath = GConfigure.referencePath.Replace(Application.dataPath, "") + "/";
+                if (GConfigure.referencePath.StartsWith("/"))
+                {
+                    GConfigure.referencePath = GConfigure.referencePath.Remove(0, 1);
+                }
+            }
+            EditorPrefs.SetString("文件生成路径", GConfigure.referencePath);
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.BeginHorizontal();
             GConfigure.prefabSavePath = EditorPrefs.GetString("prefab保存路径", GConfigureDefine.prefabdefaultPath);
             GConfigure.prefabSavePath = EditorGUILayout.TextField("预制体生成路径：", GConfigure.prefabSavePath);
+
+            if (GUILayout.Button("选择路径", GUILayout.Width(100)))
+            {
+                GConfigure.prefabSavePath = EditorUtility.OpenFolderPanel("prefab保存路径", Application.dataPath, "");
+                GConfigure.prefabSavePath = GConfigure.prefabSavePath.Replace(Application.dataPath, "") + "/";
+                if (GConfigure.prefabSavePath.StartsWith("/"))
+                {
+                    GConfigure.prefabSavePath = GConfigure.prefabSavePath.Remove(0, 1);
+                }
+            }
             EditorPrefs.SetString("prefab保存路径", GConfigure.prefabSavePath);
+            EditorGUILayout.EndHorizontal();
+
         }
 
         private void DrawLeft()
