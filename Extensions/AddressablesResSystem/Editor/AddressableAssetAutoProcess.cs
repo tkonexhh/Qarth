@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using System.IO;
-using UnityEngine.AddressableAssets;
+using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
+using System;
+using System.Linq;
+using System.IO;
+using System.Text.RegularExpressions;
+using UnityEditor.AddressableAssets.Settings.GroupSchemas;
+using UnityEditor.Experimental.SceneManagement;
+using System.Data;
 
 namespace Qarth.Editor
 {
@@ -93,7 +99,7 @@ namespace Qarth.Editor
             if (group == null)
             {
                 //Debug.LogError("ProcessAssetGroup:" + groupName);
-                group = setting.CreateGroup(groupName, false, false, false, null);
+                group = setting.CreateGroup(groupName, false, false, false, new List<AddressableAssetGroupSchema> { setting.DefaultGroup.Schemas[0] }, typeof(SchemaType));
             }
 
             if (group == null)
